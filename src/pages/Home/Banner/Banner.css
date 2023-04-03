@@ -1,0 +1,58 @@
+.banner {
+  background: url(../../../images/bookshelf-413705.jpg) no-repeat center center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../../images/bookshelf-413705.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+/* .video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transform: 'translate(-50%, -50%)';
+} */
+.bannerTitle {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-top: 10%;
+  margin-bottom: 20px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  width: 50%;
+}
+
+.bannerButton {
+  background-color: #0d284e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 30px;
+  text-decoration: none;
+}
+@media screen and (max-width: 768px) {
+  .bannerTitle {
+    font-size: 1rem;
+    width: 80%;
+    margin-left: 10%;
+  }
+  .bannerButton {
+    font-size: 1rem;
+  }
+}

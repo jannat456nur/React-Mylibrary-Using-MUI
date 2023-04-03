@@ -1,0 +1,36 @@
+.signupLink {
+  color: #0d284e;
+  font-weight: 600;
+}
+.signupLink:hover {
+  color: red;
+  font-weight: 600;
+}
+.signupButton {
+  background-color: #0d284e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 7px;
+  margin-left: 0;
+}
+.userIcon {
+  font-size: 1.2rem;
+  margin-right: 5px;
+  margin-top: 20px;
+  width: 32px;
+  height: 32px;
+  background-color: #0d284e;
+  color: #fff;
+  border-radius: 50%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
