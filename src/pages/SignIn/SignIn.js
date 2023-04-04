@@ -10,10 +10,10 @@ import {
 } from '@mui/material'
 
 import './SignIn.css'
-import image from '../../images/book-3531412.jpg'
+import image from '../../images/signin.svg'
 import Header from '../shared/Header/Header'
 import Footer from '../shared/Footer/Footer'
-import VpnKeyIcon from '@mui/icons-material/VpnKey'
+import MailIcon from '@mui/icons-material/Mail';
 import TextField from '@mui/material/TextField'
 import { Link } from 'react-router-dom'
 
@@ -21,9 +21,9 @@ const SignIn = () => {
   return (
     <>
       <Header />{' '}
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1,m:5 }}>
         <Grid container>
-          <Grid item xs={12} sm={6} md={7} lg={7}>
+          <Grid item xs={12} sm={6} md={7} lg={7} data-aos="flip-up">
             <img src={image} alt="signinImage" className="signinImage" />
           </Grid>
           <Grid item xs={12} sm={6} md={5} lg={5}>
@@ -40,7 +40,7 @@ const SignIn = () => {
               }}
             >
               <CardContent>
-                <VpnKeyIcon
+                <MailIcon
                   sx={{
                     fontSize: 30,
                     borderRadius: '50%',

@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 import { Link } from 'react-router-dom'
 import Footer from '../shared/Footer/Footer'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle'
+import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead'
 import './SignUp.css'
 
 const SignUp = () => {
@@ -19,7 +19,7 @@ const SignUp = () => {
       {' '}
       <>
         <Header />{' '}
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1 }} data-aos="fade-up">
           <Grid
             container
             sx={{
@@ -42,14 +42,15 @@ const SignUp = () => {
                 }}
               >
                 <CardContent>
-                  <AccountCircleIcon sx={{
-                    fontSize: 30,
-                    borderRadius: '50%',
-                    backgroundColor: 'green',
-                    color: 'white',
-                    padding: 1,
-                    
-                  }}></AccountCircleIcon>
+                  <MarkEmailReadIcon
+                    sx={{
+                      fontSize: 30,
+                      borderRadius: '50%',
+                      backgroundColor: 'green',
+                      color: 'white',
+                      padding: 1,
+                    }}
+                  ></MarkEmailReadIcon>
                   <Typography
                     variant="h5"
                     component="div"

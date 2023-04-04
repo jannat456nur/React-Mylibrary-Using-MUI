@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 import { Link } from 'react-router-dom'
 import Footer from '../shared/Footer/Footer'
-import image from '../../images/contact2.png'
+import image from '../../images/form.svg'
 import './Contact.css'
 
 const Contact = () => {
@@ -24,10 +24,14 @@ const Contact = () => {
         </Typography>
         <Grid container>
           <Grid item xs={12} sm={6} md={6} lg={6}>
-            <img src={image} alt="contactImage" className="contactImage" />
+            <img src={image} alt="contactImage" className="contactImage" data-aos="flip-left" />
           </Grid>
           <Grid item xs={12} sm={6} md={6} lg={6} sx={{ mr: 0 }}>
-            <Typography variant="h5" component="div" sx={{ marginTop: 10,marginBottom:5 }}>
+            <Typography
+              variant="h5"
+              component="div"
+              sx={{ marginTop: 10, marginBottom: 5 }}
+            >
               Make an Aggrement
             </Typography>
 

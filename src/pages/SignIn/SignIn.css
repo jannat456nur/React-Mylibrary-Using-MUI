@@ -1,6 +1,7 @@
 .signinImage {
   width: 100%;
-  height: 100%;
+  height: 450px;
+  margin-top: 190px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

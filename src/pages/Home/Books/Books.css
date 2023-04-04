@@ -17,12 +17,10 @@
   font-weight: 600;
   cursor: pointer;
 }
-.bottoButton {
+.bottomButton {
   color: #0d284e;
   border: none;
   border-radius: 5px;
-  padding: 10px;
- 
   cursor: pointer;
-  margin: 15px;
+  margin-top: 20px;
 }

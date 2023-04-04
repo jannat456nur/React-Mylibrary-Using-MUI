@@ -2,7 +2,7 @@ import React from 'react'
 import './Banner.css'
 import video from '../../../video/library-846.mp4'
 import { Typography } from '@mui/material'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Banner() {
   return (
@@ -11,7 +11,7 @@ function Banner() {
         <source src={video} type="video/mp4" />
       </video> */}
 
-     <div className="bannerTitle">
+     <div className="bannerTitle " data-aos="zoom-in-up">
           <Typography variant="h3" sx={{ py: 1, px: 2 }} >
           New to Our Website?
         </Typography>
