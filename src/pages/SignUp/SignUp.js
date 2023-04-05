@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import Header from '../shared/Header/Header'
 import {
+  Alert,
   Box,
   Card,
   CardContent,
+  CircularProgress,
   Grid,
   TextField,
   Typography,
@@ -12,8 +14,52 @@ import { Link } from 'react-router-dom'
 import Footer from '../shared/Footer/Footer'
 import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead'
 import './SignUp.css'
+import { AuthContext } from '../../context/AuthProvider/AuthProvider'
 
 const SignUp = () => {
+  const [loginData, setLoginData] = useState('')
+
+  const {
+    createUser,
+    isLoading,
+    user,
+    authError,
+    signInUsingGoogle,
+  } = useContext(AuthContext)
+
+  const handleOnChange = (e) => {
+    const field = e.target.name
+    const value = e.target.value
+    console.log(field, value)
+    const newLoginData = { ...loginData, [field]: value }
+    setLoginData(newLoginData)
+    console.log(newLoginData)
+  }
+
+  // const handleSignUp = (e) => {
+  //   alert('hello')
+  //   e.preventDefault()
+  //   const email = e.target.email.value
+  //   const password = e.target.password.value
+  //   createUser(email, password)
+  //     .then((res) => {
+  //       console.log(res)
+  //       const user = res.user
+  //       console.log(user)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }
+  const handlesignInWithGoogle = () => {
+    signInUsingGoogle()
+  }
+
+  const handleLoginSubmit = (e) => {
+    createUser(loginData.email, loginData.password)
+    e.preventDefault()
+  }
+
   return (
     <div>
       {' '}
@@ -58,49 +104,83 @@ const SignUp = () => {
                   >
                     Sign Up
                   </Typography>
-
-                  <TextField
-                    id=" Your Name*"
-                    label=" Your Name*"
-                    multiline
-                    maxRows={4}
-                    placeholder="Your Name"
-                    sx={{
-                      width: '100%',
-                      margin: 1,
-                      marginLeft: 0,
-                    }}
-                  />
-                  <TextField
-                    id=" Email address*"
-                    label=" Email address*"
-                    multiline
-                    maxRows={4}
-                    placeholder="Enter Your Email"
-                    sx={{
-                      width: '100%',
-                      margin: 1,
-                      marginLeft: 0,
-                    }}
-                  />
-                  <TextField
-                    id="Password*"
-                    label="Password*"
-                    multiline
-                    maxRows={4}
-                    placeholder="Enter Password"
-                    sx={{
-                      width: '100%',
-                      margin: 1,
-                      marginLeft: 0,
-                    }}
-                  />
-                  <button className="signupButton" size="small">
-                    Sign In
-                  </button>
-                  <Link to="/signin" className="signupLink">
-                    Already have any account?Signin
-                  </Link>
+                  {!isLoading && (
+                    <form onSubmit={handleLoginSubmit}>
+                      <TextField
+                        id=" Your Name*"
+                        name="name"
+                        label=" Your Name*"
+                        multiline
+                        autoFocus
+                        required
+                        maxRows={4}
+                        placeholder="Your Name"
+                        onChange={handleOnChange}
+                        sx={{
+                          width: '100%',
+                          margin: 1,
+                          marginLeft: 0,
+                        }}
+                      />
+                      <TextField
+                        name="email"
+                        type=" email"
+                        id=" Email address*"
+                        label=" Email address*"
+                        required
+                        multiline
+                        maxRows={4}
+                        placeholder="Enter Your Email"
+                        onChange={handleOnChange}
+                        sx={{
+                          width: '100%',
+                          margin: 1,
+                          marginLeft: 0,
+                        }}
+                      />
+                      <TextField
+                        name="password"
+                        type="password"
+                        id="Password*"
+                        label="Password*"
+                        required
+                        multiline
+                        maxRows={4}
+                        placeholder="Enter Password"
+                        onChange={handleOnChange}
+                        sx={{
+                          width: '100%',
+                          margin: 1,
+                          marginLeft: 0,
+                        }}
+                      />
+                      <button
+                        type="submit"
+                        value="sign up"
+                        className="signupButton"
+                        size="small"
+                      >
+                        Sign up
+                      </button>
+                      <button
+                        type="submit"
+                        value="sign up"
+                        className="signInWithGoogleButton"
+                        size="small"
+                        onClick={handlesignInWithGoogle}
+                      >
+                        Sign in with google
+                      </button>
+                      <Link to="/signin" className="signupLink">
+                        Already have any account?Signin
+                      </Link>
+                    </form>
+                  )}
+                  {isLoading && <CircularProgress />}
+                  {user?.email && ( // if user is logged in then show this message in console and redirect to home page
+                    <Alert severity="success">user created successfully!</Alert>
+                  )}
+                  {authError && <Alert severity="error">{authError}</Alert>}
                 </CardContent>
               </Card>
             </Grid>

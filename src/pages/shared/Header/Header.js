@@ -104,12 +104,13 @@ export default function Header() {
               <Link to="/contact" className="headerLink">
                 Contact
               </Link>
+                  <Link to="/signup" className="headerLink">
+                SignUp
+              </Link>
               <Link to="/signin" className="headerLink">
                 SignIn
               </Link>
-              <Link to="/signup" className="headerLink">
-                SignUp
-              </Link>
+          
             </Menu>
             <Link></Link>
           </Box>
@@ -157,12 +158,13 @@ export default function Header() {
             <Link to="/contact" className="headerLink">
               Contact
             </Link>
+             <Link to="/signup" className="headerLink">
+              SignUp
+            </Link>
             <Link to="/signin" className="headerLink">
               SignIn
             </Link>
-            <Link to="/signup" className="headerLink">
-              SignUp
-            </Link>
+           
           </Box>
           {/* user menu */}
           <Box sx={{ flexGrow: 0 }}>

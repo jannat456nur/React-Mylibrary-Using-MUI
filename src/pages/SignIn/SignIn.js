@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import {
+  Alert,
   Button,
   Card,
   CardActions,
   CardContent,
+  CircularProgress,
   Typography,
 } from '@mui/material'
 
@@ -13,15 +15,51 @@ import './SignIn.css'
 import image from '../../images/signin.svg'
 import Header from '../shared/Header/Header'
 import Footer from '../shared/Footer/Footer'
-import MailIcon from '@mui/icons-material/Mail';
+import MailIcon from '@mui/icons-material/Mail'
 import TextField from '@mui/material/TextField'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthProvider/AuthProvider'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 const SignIn = () => {
+  const [loginData, setLoginData] = useState('')
+  const { signIn,user,signOutUser ,authError,isLoading} = useContext(AuthContext)
+
+  const handleOnChange = (e) => {
+    const field = e.target.name
+    const value = e.target.value
+    console.log(field, value)
+    const newLoginData = { ...loginData, [field]: value }
+    setLoginData(newLoginData)
+    console.log(newLoginData)
+    
+  }
+
+  // const handleSignIn = (e) => {
+  //   alert('hello')
+  //   e.preventDefault()
+  //   const email = e.target.email.value
+  //   const password = e.target.password.value
+  //   createUserWithEmailAndPassword(email, password)
+  //     .then((res) => {
+  //       console.log(res)
+  //       const user = res.user
+  //       console.log(user)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }
+  const handleSignIn = (e) => {
+    signIn(loginData.email, loginData.password)
+    e.preventDefault()
+  }
+
+
   return (
     <>
       <Header />{' '}
-      <Box sx={{ flexGrow: 1,m:5 }}>
+      <Box sx={{ flexGrow: 1, m: 5 }}>
         <Grid container>
           <Grid item xs={12} sm={6} md={7} lg={7} data-aos="flip-up">
             <img src={image} alt="signinImage" className="signinImage" />
@@ -35,8 +73,8 @@ const SignIn = () => {
                 padding: 2,
                 height: 600,
                 display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
               <CardContent>
@@ -47,33 +85,57 @@ const SignIn = () => {
                     backgroundColor: 'green',
                     color: 'white',
                     padding: 1,
-                  
                   }}
                 />
                 <Typography variant="h5" component="div" sx={{ marginTop: 3 }}>
                   Sign In
                 </Typography>
-
-                <TextField
-                  id=" Email address*"
-                  label=" Email address*"
-                  multiline
-                  maxRows={4}
-                  placeholder="Enter Your Email"
-                  sx={{ width: '100%', margin: 1, marginLeft: 0 }}
-                />
-                <TextField
-                  id="Password*"
-                  label="Password*"
-                  multiline
-                  maxRows={4}
-                  placeholder="Enter Password"
-                  sx={{ width: '100%', margin: 1, marginLeft: 0}}
-                />
-                <button className="signInButton" size="small">
-                  Sign In
-                </button>
-                <Link to='/signup' className="signinLink">Dont have any account?Signup</Link>
+                <form onSubmit={handleSignIn}>
+                  <TextField
+                    id=" Email address*"
+                    label=" Email address*"
+                    type="email"
+                    name="email"
+                    multiline
+                    maxRows={4}
+                    placeholder="Enter Your Email"
+                    required
+                    autoFocus
+                    onChange={handleOnChange}
+                    sx={{ width: '100%', margin: 1, marginLeft: 0 }}
+                  />
+                  <TextField
+                    type="password"
+                    name="password"
+                    id="Password*"
+                    label="Password*"
+                    multiline
+                    maxRows={4}
+                    placeholder="Enter Password"
+                    required
+                    autoFocus
+                    onChange={handleOnChange}
+                    sx={{ width: '100%', margin: 1, marginLeft: 0 }}
+                  />
+                  {
+                    user?.email?
+                    <button onClick={signOutUser} className="signInButton" size="small" type="submit"  value="sign in">
+                    Sign out
+                  </button>
+                   :  
+                    <button className="signInButton" size="small" type="submit"  value="sign in">
+                    Sign In
+                  </button>
+                }
+                  <Link to="/signup" className="signinLink">
+                    Dont have any account?Signup
+                  </Link>
+                </form>
+                   {isLoading && <CircularProgress />}
+                  {user?.email && ( // if user is logged in then show this message in console and redirect to home page
+                    <Alert severity="success">user login successfully!</Alert>
+                  )}
+                  {authError && <Alert severity="error">{authError}</Alert>}
               </CardContent>
             </Card>
           </Grid>
