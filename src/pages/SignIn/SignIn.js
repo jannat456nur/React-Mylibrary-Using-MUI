@@ -64,6 +64,7 @@ const from = location.state?.from?.pathname || '/';
                 margin: 2,
                 padding: 2,
                 height: 600,
+               
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',

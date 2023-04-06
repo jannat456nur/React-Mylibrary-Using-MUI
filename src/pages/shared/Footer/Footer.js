@@ -10,7 +10,7 @@ const Footer = () => {
       <Box
         sx={{
           flexGrow: 1,
-          backgroundColor: '#564F4F',
+          backgroundColor: 'black',
           // backgroundColor: '#201B1B',
         
           color: '#fff',

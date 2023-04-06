@@ -14,7 +14,7 @@ import './Feedbacks.css'
 const Feedbacks = () => {
   const [feedbacks, setFeedbacks] = useState([])
   useEffect(() => {
-    fetch('feedbackData.json')
+    fetch('http://localhost:5000/feedback')
       .then((res) => res.json())
       .then((data) => setFeedbacks(data))
   }, [])

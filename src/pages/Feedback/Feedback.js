@@ -7,13 +7,48 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import Header from '../shared/Header/Header'
 import Footer from '../shared/Footer/Footer'
 import './Feedback.css'
 import SendIcon from '@mui/icons-material/Send'
+import { AuthContext } from '../../context/AuthProvider/AuthProvider'
 
 const Feedback = () => {
+
+  const {user} = useContext(AuthContext)
+  const initialInfo = {userName: user.name, userText: user.text}
+  const [info, setInfo] = useState(initialInfo)
+
+
+
+  //collect data from user
+  const handleOnBlur = (e) => {
+    const field = e.target.name
+    const value = e.target.value
+    const newInfo = {...info, [field]: value}
+    console.log(newInfo)
+    setInfo(newInfo)
+  }
+
+//send data to server
+fetch("http://localhost:5000/feedback", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(info),
+})
+.then((res) => res.json())
+.then((data) => {
+
+  if (data.insertedId) {
+    alert("Your review has been added successfully")
+  }
+})
+
+
+
   return (
     <>
       <Header />
@@ -57,6 +92,8 @@ const Feedback = () => {
                   multiline
                   maxRows={4}
                   placeholder="Your Name"
+                  name= 'name'
+                  onBlur={handleOnBlur}
                   sx={{
                     width: '100%',
                     margin: 1,
@@ -67,6 +104,8 @@ const Feedback = () => {
                 <TextField
                   id=" Review from heart*"
                   label="Review from heart*"
+                  name='text'
+                  onBlur={handleOnBlur}
                   multiline
                   rows={4}
                   placeholder=" Review from heart*"
