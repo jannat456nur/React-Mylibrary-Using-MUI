@@ -13,7 +13,7 @@ import MenuItem from '@mui/material/MenuItem'
 import MenuIcon from '@mui/icons-material/Menu'
 import ImportContactsIcon from '@mui/icons-material/ImportContacts'
 import { Menu } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider'
 
 export default function Header() {
@@ -22,8 +22,7 @@ export default function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
-const {user,signOutUser} = React.useContext(AuthContext)
-
+  const { user, signOutUser } = React.useContext(AuthContext)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
@@ -44,7 +43,7 @@ const {user,signOutUser} = React.useContext(AuthContext)
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* icon for large screen */}
-
+          {/* //book icon */}
           <ImportContactsIcon
             sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
           />
@@ -93,33 +92,176 @@ const {user,signOutUser} = React.useContext(AuthContext)
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: {
+                  xs: 'block',
+                  md: 'none',
+                  width: '300px',
+                  textAlign: 'left',
+                },
               }}
             >
-              <Link to="/" className="headerLink">
-                Home
-              </Link>
-              <Link to="/books" className="headerLink">
-                Books
-              </Link>
-              <Link to="/feedback" className="headerLink">
-                Feedback
-              </Link>
-              <Link to="/contact" className="headerLink">
-                Contact
-              </Link>
-                  <Link to="/signup" className="headerLink">
-                SignUp
-              </Link>
-                
-             {user?.email?<Link to="/signin" onClick={signOutUser} className="headerLink">
-              SignOut
-            </Link>:<Link to="/signin" className="headerLink">
-              SignIn
-            </Link>}
-          
+              <Button
+                sx={{
+                  fontSize: 18,
+                  display: 'block',
+                  width: '300px',
+                  textAlign: 'left',
+                }}
+              >
+                <NavLink
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          color: 'black',
+                        }
+                      : { color: '#0d284e' }
+                  }
+                  to="/"
+                  className="headerLink"
+                >
+                  Home
+                </NavLink>
+              </Button>
+              <Button
+                sx={{
+                  fontSize: 18,
+                  display: 'block',
+                  width: '300px',
+                  textAlign: 'left',
+                }}
+              >
+                <NavLink
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          color: 'black',
+                        }
+                      : { color: '#0d284e' }
+                  }
+                  to="/books"
+                  className="headerLink"
+                >
+                  Books
+                </NavLink>
+              </Button>
+
+              <Button
+                sx={{
+                  fontSize: 18,
+                  display: 'block',
+                  width: '300px',
+                  textAlign: 'left',
+                }}
+              >
+                <NavLink
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          color: 'black',
+                        }
+                      : { color: '#0d284e' }
+                  }
+                  to="/feedback"
+                  className="headerLink"
+                >
+                  Feedback
+                </NavLink>
+              </Button>
+              <Button
+                sx={{
+                  fontSize: 18,
+                  display: 'block',
+                  width: '300px',
+                  textAlign: 'left',
+                }}
+              >
+                <NavLink
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          color: 'black',
+                        }
+                      : { color:'#0d284e' }
+                  }
+                  to="/contact"
+                  className="headerLink"
+                >
+                  Contact
+                </NavLink>
+              </Button>
+              <Button
+                sx={{
+                  fontSize: 18,
+                  display: 'block',
+                  width: '300px',
+                  textAlign: 'left',
+                }}
+              >
+                <NavLink
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          color: 'black',
+                          
+                        }
+                      : { color:'#0d284e' }
+                  }
+                  to="/signup"
+                  className="headerLink"
+                >
+                  SignUp
+                </NavLink>
+              </Button>
+
+              {user?.email ? (
+                <Button
+                  sx={{
+                    fontSize: 18,
+                    display: 'block',
+                    width: '300px',
+                    textAlign: 'left',
+                  }}
+                >
+                  <NavLink
+                    style={({ isActive }) =>
+                      isActive
+                        ? {
+                            color: 'black',
+                          }
+                        : { color: '#0d284e'}
+                    }
+                    to="/signin"
+                    onClick={signOutUser}
+                    className="headerLink"
+                  >
+                    SignOut
+                  </NavLink>
+                </Button>
+              ) : (
+                <Button
+                  sx={{
+                    fontSize: 18,
+                    display: 'block',
+                    width: '300px',
+                    textAlign: 'left',
+                  }}
+                >
+                  <NavLink
+                    style={({ isActive }) =>
+                      isActive
+                        ? {
+                            color: 'black',
+                          }
+                        : { color: '#0d284e' }
+                    }
+                    to="/signin"
+                    className="headerLink"
+                  >
+                    SignIn
+                  </NavLink>
+                </Button>
+              )}
             </Menu>
-          
           </Box>
           {/* icon for small screen */}
           <ImportContactsIcon
@@ -153,31 +295,106 @@ const {user,signOutUser} = React.useContext(AuthContext)
               margin: 'auto',
             }}
           >
-            <Link to="/" className="headerLink">
+            <NavLink
+              style={({ isActive }) =>
+                isActive
+                  ? {
+                      color: 'black',
+                    }
+                  : { color: '#fff' }
+              }
+              to="/"
+              className="headerLink"
+            >
               Home
-            </Link>
-            <Link to="/books" className="headerLink">
+            </NavLink>
+
+            <NavLink
+              style={({ isActive }) =>
+                isActive
+                  ? {
+                      color: 'black',
+                    }
+                  : { color: '#fff' }
+              }
+              to="/books"
+              className="headerLink"
+            >
               Books
-            </Link>
-            <Link to="/feedback" className="headerLink">
+            </NavLink>
+            <NavLink
+              style={({ isActive }) =>
+                isActive
+                  ? {
+                      color: 'black',
+                    }
+                  : { color: '#fff' }
+              }
+              to="/feedback"
+              className="headerLink"
+            >
               Feedback
-            </Link>
-            <Link to="/contact" className="headerLink">
+            </NavLink>
+            <NavLink
+              style={({ isActive }) =>
+                isActive
+                  ? {
+                      color: 'black',
+                    }
+                  : { color: '#fff' }
+              }
+              to="/contact"
+              className="headerLink"
+            >
               Contact
-            </Link>
-             <Link to="/signup" className="headerLink">
+            </NavLink>
+            <NavLink
+              style={({ isActive }) =>
+                isActive
+                  ? {
+                      color: 'black',
+                    }
+                  : { color: '#fff' }
+              }
+              to="/signup"
+              className="headerLink"
+            >
               SignUp
-            </Link>
-             {/* <Link to="/dashboard" className="headerLink">
+            </NavLink>
+            {/* <Link to="/dashboard" className="headerLink">
               Dashboard
             </Link> */}
-            
-             {user?.email?<Link to="/signin" onClick={signOutUser} className="headerLink">
-              SignOut
-            </Link>:<Link to="/signin" className="headerLink">
-              SignIn
-            </Link>}
-            
+
+            {user?.email ? (
+              <NavLink
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                        color: 'black',
+                      }
+                    : { color: '#fff' }
+                }
+                to="/signin"
+                onClick={signOutUser}
+                className="headerLink"
+              >
+                SignOut
+              </NavLink>
+            ) : (
+              <NavLink
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                        color: 'black',
+                      }
+                    : { color: '#fff' }
+                }
+                to="/signin"
+                className="headerLink"
+              >
+                SignIn
+              </NavLink>
+            )}
           </Box>
           {/* user menu */}
           <Box sx={{ flexGrow: 0 }}>
