@@ -17,13 +17,18 @@ import Header from '../shared/Header/Header'
 import Footer from '../shared/Footer/Footer'
 import MailIcon from '@mui/icons-material/Mail'
 import TextField from '@mui/material/TextField'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+
 
 const SignIn = () => {
   const [loginData, setLoginData] = useState('')
-  const { signIn,user,signOutUser ,authError,isLoading} = useContext(AuthContext)
+  const { signIn,user ,authError,isLoading} = useContext(AuthContext)
+  
+  const location = useLocation();
+  const navigate = useNavigate();
+
+const from = location.state?.from?.pathname || '/';
 
   const handleOnChange = (e) => {
     const field = e.target.name
@@ -35,23 +40,10 @@ const SignIn = () => {
     
   }
 
-  // const handleSignIn = (e) => {
-  //   alert('hello')
-  //   e.preventDefault()
-  //   const email = e.target.email.value
-  //   const password = e.target.password.value
-  //   createUserWithEmailAndPassword(email, password)
-  //     .then((res) => {
-  //       console.log(res)
-  //       const user = res.user
-  //       console.log(user)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }
   const handleSignIn = (e) => {
     signIn(loginData.email, loginData.password)
+    
+    navigate(from, { replace: true })
     e.preventDefault()
   }
 
@@ -117,7 +109,10 @@ const SignIn = () => {
                     onChange={handleOnChange}
                     sx={{ width: '100%', margin: 1, marginLeft: 0 }}
                   />
-                  {
+                  <button className="signInButton" size="small" type="submit"  value="sign in">
+                    Sign In
+                  </button>
+                  {/* {
                     user?.email?
                     <button onClick={signOutUser} className="signInButton" size="small" type="submit"  value="sign in">
                     Sign out
@@ -126,7 +121,7 @@ const SignIn = () => {
                     <button className="signInButton" size="small" type="submit"  value="sign in">
                     Sign In
                   </button>
-                }
+                } */}
                   <Link to="/signup" className="signinLink">
                     Dont have any account?Signup
                   </Link>

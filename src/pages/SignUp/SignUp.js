@@ -36,21 +36,6 @@ const SignUp = () => {
     console.log(newLoginData)
   }
 
-  // const handleSignUp = (e) => {
-  //   alert('hello')
-  //   e.preventDefault()
-  //   const email = e.target.email.value
-  //   const password = e.target.password.value
-  //   createUser(email, password)
-  //     .then((res) => {
-  //       console.log(res)
-  //       const user = res.user
-  //       console.log(user)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }
   const handlesignInWithGoogle = () => {
     signInUsingGoogle()
   }

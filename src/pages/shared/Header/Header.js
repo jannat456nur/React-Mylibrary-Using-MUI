@@ -14,12 +14,16 @@ import MenuIcon from '@mui/icons-material/Menu'
 import ImportContactsIcon from '@mui/icons-material/ImportContacts'
 import { Menu } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider'
 
 export default function Header() {
   const pages = ['Home', 'Books', 'Feedback', 'Contact', 'SignUp', 'SignIn']
   const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
+
+const {user,signOutUser} = React.useContext(AuthContext)
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
@@ -107,12 +111,15 @@ export default function Header() {
                   <Link to="/signup" className="headerLink">
                 SignUp
               </Link>
-              <Link to="/signin" className="headerLink">
-                SignIn
-              </Link>
+                
+             {user?.email?<Link to="/signin" onClick={signOutUser} className="headerLink">
+              SignOut
+            </Link>:<Link to="/signin" className="headerLink">
+              SignIn
+            </Link>}
           
             </Menu>
-            <Link></Link>
+          
           </Box>
           {/* icon for small screen */}
           <ImportContactsIcon
@@ -161,10 +168,16 @@ export default function Header() {
              <Link to="/signup" className="headerLink">
               SignUp
             </Link>
-            <Link to="/signin" className="headerLink">
+             {/* <Link to="/dashboard" className="headerLink">
+              Dashboard
+            </Link> */}
+            
+             {user?.email?<Link to="/signin" onClick={signOutUser} className="headerLink">
+              SignOut
+            </Link>:<Link to="/signin" className="headerLink">
               SignIn
-            </Link>
-           
+            </Link>}
+            
           </Box>
           {/* user menu */}
           <Box sx={{ flexGrow: 0 }}>
