@@ -31,7 +31,7 @@ const Feedback = () => {
             <Card
               sx={{
                 minWidth: 275,
-                width: '100%',
+                width: { xs: "83%", sm: "90%", md: "90%", lg: "100%" },
                 margin: 2,
                 padding: 2,
                 height: 400,
@@ -39,6 +39,7 @@ const Feedback = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
+              
             >
               <CardContent>
                 <Chip

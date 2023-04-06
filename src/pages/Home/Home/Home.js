@@ -3,6 +3,8 @@ import Header from '../../shared/Header/Header'
 import Banner from '../Banner/Banner'
 import Books from '../Books/Books'
 import Footer from '../../shared/Footer/Footer'
+import Feedback from '../../Feedback/Feedback'
+import Feedbacks from '../Feedbacks/Feedbacks'
 
 const Home = () => {
   return (
@@ -10,6 +12,7 @@ const Home = () => {
       <Header />
       <Banner />
       <Books />
+      <Feedbacks />
       <Footer />
     </div>
   )

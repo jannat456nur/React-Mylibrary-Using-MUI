@@ -4,11 +4,19 @@ import Typography from '@mui/material/Typography'
 import { Grid } from '@mui/material'
 import './Books.css'
 import Book from '../Book/Book'
+import { useQuery } from '@tanstack/react-query'
 
 const Books = () => {
   const [books, setBooks] = useState([])
+
+  // const {data:,isLoading} = useQuery({
+  //   queryKey: ['bookDataCollection'],
+  //   queryFn: () => fetch('http://localhost:5000/bookDataCollection')
+  //   .then((res) => res.json()),
+
+  // })
   useEffect(() => {
-    fetch('bookData.JSON')
+    fetch('http://localhost:5000/bookDataCollection')
       .then((res) => res.json())
       .then((data) => setBooks(data))
   }, [])
