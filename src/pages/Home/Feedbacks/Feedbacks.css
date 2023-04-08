@@ -66,12 +66,18 @@
 }
 
 .review {
-  font-family: 'Times New Roman', Times, serif;
   padding: 1rem 2rem;
+  color: #fff;
+  background-color: black;
+  z-index: 2;
 }
 
 .name {
   text-align: center;
   width: 100%;
   display: block;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  
 }

@@ -15,39 +15,49 @@ import SendIcon from '@mui/icons-material/Send'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider'
 
 const Feedback = () => {
+  const { user } = useContext(AuthContext)
+  // const initialInfo = { userName: user.name, userText: user.text }
+  // const [info, setInfo] = useState(initialInfo)
 
-  const {user} = useContext(AuthContext)
-  const initialInfo = {userName: user.name, userText: user.text}
-  const [info, setInfo] = useState(initialInfo)
+  const handleSubmit = (e) => {
+    // const form = new FormData(e.target)
+
+    // const newInfo = { ...info }
+    // for (let field of form) {
+    //   newInfo[field[0]] = field[1]
+    // }
+    // setInfo(newInfo)
+    // console.log(newInfo)
+    // const form = new FormData(e.currentTarget)
+    // const data = {
+    //   username: form.get('userName'),
+    //   description: form.get('description'),
+    // }
+    // console.log(data)
 
 
-
-  //collect data from user
-  const handleOnBlur = (e) => {
-    const field = e.target.name
-    const value = e.target.value
-    const newInfo = {...info, [field]: value}
-    console.log(newInfo)
-    setInfo(newInfo)
+    const userData = {
+      userName: user.name,
+      description: user.description,
+    
+    }
+    //send data to server
+    fetch('http://localhost:5000/feedback', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+      // console.log(userData)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert('Your review has been added successfully')
+        }
+      })
+    e.preventDefault()
   }
-
-//send data to server
-fetch("http://localhost:5000/feedback", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(info),
-})
-.then((res) => res.json())
-.then((data) => {
-
-  if (data.insertedId) {
-    alert("Your review has been added successfully")
-  }
-})
-
-
 
   return (
     <>
@@ -66,7 +76,7 @@ fetch("http://localhost:5000/feedback", {
             <Card
               sx={{
                 minWidth: 275,
-                width: { xs: "83%", sm: "90%", md: "90%", lg: "100%" },
+                width: { xs: '83%', sm: '90%', md: '90%', lg: '100%' },
                 margin: 2,
                 padding: 2,
                 height: 400,
@@ -74,7 +84,6 @@ fetch("http://localhost:5000/feedback", {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
-              
             >
               <CardContent>
                 <Chip
@@ -86,42 +95,48 @@ fetch("http://localhost:5000/feedback", {
                     background: 'rgb(211, 61, 211)',
                   }}
                 />
-                <TextField
-                  id=" Your Name*"
-                  label=" Your Name*"
-                  multiline
-                  maxRows={4}
-                  placeholder="Your Name"
-                  name= 'name'
-                  onBlur={handleOnBlur}
-                  sx={{
-                    width: '100%',
-                    margin: 1,
-                    marginLeft: 0,
-                    marginTop: 5,
-                  }}
-                />
-                <TextField
-                  id=" Review from heart*"
-                  label="Review from heart*"
-                  name='text'
-                  onBlur={handleOnBlur}
-                  multiline
-                  rows={4}
-                  placeholder=" Review from heart*"
-                  sx={{ width: '100%', margin: 1, marginLeft: 0 }}
-                />
-
-                <button className="reviewButton" size="small" sx={{}}>
-                  Submit
-                  <SendIcon
+                <form onSubmit={handleSubmit}>
+                  <TextField
+                    id=" Your Name*"
+                    label=" Your Name*"
+                    multiline
+                    required
+                    autoFocus
+                    maxRows={4}
+                    placeholder="Your Name"
+                    name="userName"
+                    // onBlur={handleOnBlur}
                     sx={{
-                      marginLeft: 1,
-                      fontSize: 15,
-                      color: 'white',
+                      width: '100%',
+                      margin: 1,
+                      marginLeft: 0,
+                      marginTop: 5,
                     }}
                   />
-                </button>
+                  <TextField
+                    id=" Review from heart*"
+                    label="Review from heart*"
+                    name="description"
+                    // onBlur={handleOnBlur}
+                    multiline
+                    required
+                    autoFocus
+                    rows={4}
+                    placeholder=" Review from heart*"
+                    sx={{ width: '100%', margin: 1, marginLeft: 0 }}
+                  />
+
+                  <button className="reviewButton" size="small" sx={{}}>
+                    Submit
+                    <SendIcon
+                      sx={{
+                        marginLeft: 1,
+                        fontSize: 15,
+                        color: 'white',
+                      }}
+                    />
+                  </button>
+                </form>
               </CardContent>
             </Card>
           </Grid>
