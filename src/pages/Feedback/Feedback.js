@@ -61,7 +61,7 @@ const Feedback = () => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
 
       <Box sx={{ flexGrow: 1, boxShadow: 5 }} data-aos="fade-up">
         <Grid
@@ -143,7 +143,7 @@ const Feedback = () => {
         </Grid>
       </Box>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

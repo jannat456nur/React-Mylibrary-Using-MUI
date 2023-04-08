@@ -6,29 +6,20 @@ import SignUp from '../../pages/SignUp/SignUp'
 import Contact from '../../pages/Contact/Contact'
 import Feedback from '../../pages/Feedback/Feedback'
 import Books from '../../pages/Home/Books/Books'
-import Dashboard from './../../pages/Dashboard/Dashboard'
+import Dashboard from '../../pages/Dashboard/Dashboard/Dashboard'
 import PrivateRoute from './../PrivateRoute/PrivateRoute'
+import DashboardLayout from '../../Layout/DashboardLayout/Dashboardlayout'
+import MakeAdmin from '../../pages/Dashboard/MakeAdmin/MakeAdmin'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
+    // errorElement: <DisplayError></DisplayError>,
     children: [
       {
         path: '/',
         element: <Home></Home>,
-      },
-      {
-        path: '/books',
-        element: <Books></Books>,
-      },
-      {
-        path: '/feedback',
-        element: <Feedback></Feedback>,
-      },
-      {
-        path: '/contact',
-        element: <Contact></Contact>,
       },
       {
         path: '/signin',
@@ -38,16 +29,39 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <SignUp></SignUp>,
       },
+      {
+        path: '/contact',
+        element: <Contact></Contact>,
+      },
+      {
+        path: '/feedback',
+        element: <Feedback></Feedback>,
+      },
+      {
+        path: '/books',
+        element: <Books></Books>,
+      },
     ],
   },
   //did not work private route
   {
     path: '/dashboard',
     element: (
-      <PrivateRoute>
-        <Dashboard></Dashboard>
-      </PrivateRoute>
+    
+        <DashboardLayout></DashboardLayout>
+    
     ),
+
+    children: [
+      {
+        path: '/dashboard',
+        element:<Dashboard></Dashboard>,
+      },
+      {
+        path: '/dashboard/makeadmin',
+        element: <MakeAdmin></MakeAdmin>,
+      },
+    ],
   },
 ])
 export default router

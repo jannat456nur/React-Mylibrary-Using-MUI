@@ -361,9 +361,9 @@ export default function Header() {
             >
               SignUp
             </NavLink>
-            {/* <Link to="/dashboard" className="headerLink">
+            <Link to="/dashboard" className="headerLink">
               Dashboard
-            </Link> */}
+            </Link>
 
             {user?.email ? (
               <NavLink

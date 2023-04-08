@@ -50,7 +50,7 @@ const from = location.state?.from?.pathname || '/';
 
   return (
     <>
-      <Header />{' '}
+      {/* <Header />{' '} */}
       <Box sx={{ flexGrow: 1, m: 5 }}>
         <Grid container>
           <Grid item xs={12} sm={6} md={7} lg={7} data-aos="flip-up">
@@ -137,7 +137,7 @@ const from = location.state?.from?.pathname || '/';
           </Grid>
         </Grid>
       </Box>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

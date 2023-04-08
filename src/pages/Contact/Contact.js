@@ -16,7 +16,7 @@ import './Contact.css'
 const Contact = () => {
   return (
     <>
-      <Header />{' '}
+      {/* <Header />{' '} */}
       <Box sx={{ flexGrow: 1 }}>
         <Typography variant="h4" sx={{ mt: 5 }}>
           {' '}
@@ -72,7 +72,7 @@ const Contact = () => {
           </Grid>
         </Grid>
       </Box>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

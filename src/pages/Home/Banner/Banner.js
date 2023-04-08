@@ -18,7 +18,7 @@ function Banner() {
      </div>
       
       
-     <Link to='/signin' className='bannerButton'>Get stared</Link>
+     <Link to='/signup' className='bannerButton'>Get stared</Link>
 
     </div>
   )

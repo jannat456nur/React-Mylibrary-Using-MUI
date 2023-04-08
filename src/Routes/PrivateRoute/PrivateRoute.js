@@ -1,16 +1,21 @@
-import React from 'react'
-import { AuthContext } from '../../context/AuthProvider/AuthProvider'
+import React, { useContext } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthProvider/AuthProvider'
+import { CircularProgress } from '@mui/material'
 
 const PrivateRoute = ({ children }) => {
-  const { user } = React.useContext(AuthContext)
+  const { user, loading } = useContext(AuthContext)
   const location = useLocation()
+
+  if (loading) {
+    return <CircularProgress />
+  }
+
   if (user) {
     return children
   }
-  // if user is not logged in, redirect to login page with the path user tried to access as state (from) so that we can redirect user to that page after login is successful
 
-  return <Navigate to="/login" state={{ from: location }} replace></Navigate>
+  return <Navigate to="/signup" state={{ from: location }} replace></Navigate>
 }
 
 export default PrivateRoute

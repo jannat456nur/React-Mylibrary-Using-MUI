@@ -95,19 +95,7 @@ const createUser = (email, password, name, history) => {
       .finally(() => setLoading(false))
   }
 
-  // const signInUsingGoogle = () => {
-  //   const googleProvider = new GoogleAuthProvider()
-  //   signInWithPopup(auth, googleProvider)
-  //     .then((result) => {
-  //       setUser(result.user)
-  //       setAuthError('')
-  //       //save user to database
-  //       saveUser(user.email,user.displayName,'PUT')
-  //     })
-  //     .catch((error) => {
-  //       alert(error.message)
-  //     })
-  // }
+
 
     const signInUsingGoogle = () => {
         const googleProvider = new GoogleAuthProvider();
@@ -148,20 +136,7 @@ const createUser = (email, password, name, history) => {
       .finally(() => setLoading(false))
   }
 
-//   const saveUser = (email, displayName,method) => {
-//     const user = { email, displayName }
-//     fetch('http://localhost:5000/users', {
-//       method: method,
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(user),
-//     })
-//       .then((res) => res.json())
-//       .then((data) => {
-//         console.log(data)
-//       })
-//   }
+
 
       const saveUser = (email, displayName,method) => {
         const user = { email, displayName };

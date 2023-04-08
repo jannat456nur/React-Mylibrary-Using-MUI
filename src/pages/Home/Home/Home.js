@@ -9,11 +9,11 @@ import Feedbacks from '../Feedbacks/Feedbacks'
 const Home = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Banner />
       <Books />
       <Feedbacks />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

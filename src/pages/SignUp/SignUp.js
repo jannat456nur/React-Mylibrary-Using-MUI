@@ -49,7 +49,7 @@ const SignUp = () => {
     <div>
       {' '}
       <>
-        <Header />{' '}
+        {/* <Header />{' '} */}
         <Box sx={{ flexGrow: 1 }} data-aos="fade-up">
           <Grid
             container
@@ -171,7 +171,7 @@ const SignUp = () => {
             </Grid>
           </Grid>
         </Box>
-        <Footer />
+        {/* <Footer /> */}
       </>
     </div>
   )
