@@ -1,0 +1,33 @@
+.button {
+  background-color: #0d284e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 15px;
+}
+.button:hover {
+  background-color: #0d284e;
+  color: #fff;
+
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.bottomButton {
+  color: #0d284e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .books {
+    margin-left: '15px';
+  }
+}

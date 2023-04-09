@@ -10,6 +10,11 @@ import Dashboard from '../../pages/Dashboard/Dashboard/Dashboard'
 import PrivateRoute from './../PrivateRoute/PrivateRoute'
 import DashboardLayout from '../../Layout/DashboardLayout/Dashboardlayout'
 import MakeAdmin from '../../pages/Dashboard/MakeAdmin/MakeAdmin'
+import ManageCourse from '../../pages/Dashboard/ManageCourse/ManageCourse'
+import ManageReview from '../../pages/Dashboard/ManageReview/ManageReview'
+import ManageUser from '../../pages/Dashboard/ManageUser/ManageUser'
+import DashboardHome from '../../pages/Dashboard/DashboardHome/DashboardHome'
+import ManageBooks from '../../pages/Dashboard/ManageBooks/ManageBooks'
 
 const router = createBrowserRouter([
   {
@@ -46,21 +51,31 @@ const router = createBrowserRouter([
   //did not work private route
   {
     path: '/dashboard',
-    element: (
-    
-        <DashboardLayout></DashboardLayout>
-    
-    ),
+    element: <DashboardLayout><Dashboard></Dashboard></DashboardLayout>,
 
     children: [
+      
       {
-        path: '/dashboard',
-        element:<Dashboard></Dashboard>,
+        path: '/dashboard/home',
+        element:<DashboardHome></DashboardHome>,
       },
       {
         path: '/dashboard/makeadmin',
         element: <MakeAdmin></MakeAdmin>,
       },
+      {
+        path: '/dashboard/manageBooks',
+        element: <ManageBooks></ManageBooks>
+      },
+      {
+        path: '/dashboard/manageReview',
+        element: <ManageReview></ManageReview>
+      },
+      {
+        path: '/dashboard/manageUser',
+        element: <ManageUser></ManageUser>
+      },
+
     ],
   },
 ])

@@ -17,15 +17,15 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import MakeAdmin from '../MakeAdmin/MakeAdmin'
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import GridViewIcon from '@mui/icons-material/GridView'
 import './Dashboard.css'
-import HomeIcon from '@mui/icons-material/Home';
+import HomeIcon from '@mui/icons-material/Home'
 import ImportContactsIcon from '@mui/icons-material/ImportContacts'
 import ManageCourse from '../ManageCourse/ManageCourse'
 import ManageReview from '../ManageReview/ManageReview'
 import ManageUser from '../ManageUser/ManageUser'
-
+import { Button } from '@mui/material'
 
 const drawerWidth = 240
 
@@ -63,15 +63,15 @@ const Dashboard = (props) => {
       <Divider />
       <Box>
         <List>
-          
+
           <ListItem disablePadding>
             <ListItemButton className="dashboardButton">
               <GridViewIcon />
-              <Link className="dashboardLink" to='/dashboard' >
+              <Link className="dashboardLink" to='/dashboard/home' >
               Dashboard
               </Link>
             </ListItemButton>
-             
+
           </ListItem>
            <Divider />
           <ListItem disablePadding>
@@ -81,47 +81,71 @@ const Dashboard = (props) => {
                 MakeAdmin
               </Link>
             </ListItemButton>
-             
+
           </ListItem>
            <Divider />
           <ListItem disablePadding>
             <ListItemButton className="dashboardButton">
               <GridViewIcon />
-              <Link className="dashboardLink" to="/makeadmin">
-                ManageCourse
+              <Link className="dashboardLink" to="/dashboard/manageBooks">
+                ManageBooks
               </Link>
             </ListItemButton>
-             
+
           </ListItem>
            <Divider />
           <ListItem disablePadding>
             <ListItemButton className="dashboardButton">
               <GridViewIcon />
-              <Link className="dashboardLink" to="/makeadmin">
+              <Link className="dashboardLink" to="/dashboard/manageReview">
                ManageReview
               </Link>
             </ListItemButton>
-             
+
           </ListItem>
            <Divider />
           <ListItem disablePadding>
             <ListItemButton className="dashboardButton">
               <GridViewIcon />
-              <Link className="dashboardLink" to="/makeadmin">
+              <Link className="dashboardLink" to="/dashboard/manageUser">
                ManageUser
               </Link>
             </ListItemButton>
-             
+
           </ListItem>
            <Divider />
-        
-          
+
         </List>
-       
+
       </Box>
     </div>
   )
+  // const drawer = (
+  //   <div>
+  //     <Toolbar />
+  //     <Divider />
+  //     <Link to="/appointment">
+  //       <Button color="inherit">Appointment</Button>
+  //     </Link>
+  //     <Link to="/dashboard">
+  //       <Button color="inherit">Dashboard</Button>
+  //     </Link>
 
+  //     <Link to={`/dashboard/makeAdmin`}>
+  //       <Button color="inherit">Make Admin</Button>
+  //     </Link>
+  //     <Link to={`/dashboard/addDoctor`}>
+  //       <Button color="inherit">Add Doctor</Button>
+  //     </Link>
+
+  //     <Link to="/dashboard/manageCourse">
+  //       <Button color="inherit">Manage Course</Button>
+  //     </Link>
+  //     <Link to="/dashboard/manageCourse">
+  //       <Button color="inherit">Manage Course</Button>
+  //     </Link>
+  //   </div>
+  // )
   const container =
     window !== undefined ? () => window().document.body : undefined
   return (
@@ -144,7 +168,9 @@ const Dashboard = (props) => {
           >
             <MenuIcon />
           </IconButton>
-         <HomeIcon />
+          <Typography variant="h6" noWrap component="div">
+            Dashboard
+          </Typography>
         </Toolbar>
       </AppBar>
       <Box
@@ -152,7 +178,6 @@ const Dashboard = (props) => {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           container={container}
           variant="temporary"
@@ -194,8 +219,8 @@ const Dashboard = (props) => {
         }}
       >
         <Toolbar />
-      <Typography>ygsduhgd</Typography>
-       
+
+        <Outlet></Outlet>
       </Box>
     </Box>
   )
