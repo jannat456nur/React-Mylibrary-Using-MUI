@@ -14,7 +14,8 @@ import ManageCourse from '../../pages/Dashboard/ManageCourse/ManageCourse'
 import ManageReview from '../../pages/Dashboard/ManageReview/ManageReview'
 import ManageUser from '../../pages/Dashboard/ManageUser/ManageUser'
 import DashboardHome from '../../pages/Dashboard/DashboardHome/DashboardHome'
-import ManageBooks from '../../pages/Dashboard/ManageBooks/ManageBooks'
+import DeleteBooks from '../../pages/Dashboard/DeleteBooks/DeleteBooks'
+import AddBooks from '../../pages/Dashboard/AddBooks/AddBooks'
 
 const router = createBrowserRouter([
   {
@@ -64,8 +65,12 @@ const router = createBrowserRouter([
         element: <MakeAdmin></MakeAdmin>,
       },
       {
-        path: '/dashboard/manageBooks',
-        element: <ManageBooks></ManageBooks>
+        path: '/dashboard/deleteBooks',
+        element: <DeleteBooks></DeleteBooks>
+      },
+      {
+        path: '/dashboard/addBooks',
+        element: <AddBooks></AddBooks>
       },
       {
         path: '/dashboard/manageReview',

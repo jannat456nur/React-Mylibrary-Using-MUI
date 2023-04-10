@@ -22,7 +22,7 @@ const Feedbacks = () => {
     <>
       <Typography variant="h5" sx={{ py: 2, pl: 2 }}>
         {' '}
-        STUDENT'S FEEDBACK
+        MANAGE FEEDBACKS
       </Typography>
       <Swiper
         spaceBetween={50}
@@ -65,8 +65,8 @@ const Feedbacks = () => {
           <SwiperSlide key={user.id}>
             <div className="box">
               <div className="inner-box">
-                <div className="review">{user.review}</div>
-                <div className="name">🎔 -by {user.name}</div>
+                <div className="">{user.description}</div>
+                <div className="name">🎔 -by {user.username}</div>
               </div>
             </div>
           </SwiperSlide>

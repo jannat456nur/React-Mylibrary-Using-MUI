@@ -19,7 +19,6 @@ const ManageREview = () => {
       .then((data) => setFeedbacks(data))
   }, [])
 
-
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/feedback/${id}`, {
       method: 'DELETE',
@@ -32,8 +31,7 @@ const ManageREview = () => {
         }
       })
   }
-  
-      
+
   return (
     <>
       <Typography variant="h5" sx={{ py: 2, pl: 2 }}>
@@ -80,12 +78,20 @@ const ManageREview = () => {
         {feedbacks.map((user) => (
           <SwiperSlide key={user.id}>
             <div className="box">
-              <div className="inner-box">
-                <div className="review">{user.review}</div>
-                <div className="name">🎔 -by {user.name}</div>
+              <div className="">
+                <div className="">{user.description}</div>
+                <div className="name">🎔 -by {user.username}</div>
+                <div>
+                  {' '}
+                  <Button
+                    onClick={() => handleDelete(user._id)}
+                    className="deleteReview"
+                  >
+                    delete
+                  </Button>
+                </div>
               </div>
             </div>
-            <Button onClick={()=>handleDelete(user._id)} className="deleteReview">delete</Button>
           </SwiperSlide>
         ))}
       </Swiper>

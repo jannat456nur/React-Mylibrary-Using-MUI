@@ -61,14 +61,14 @@
 .inner-box {
   padding: 10px 5px;
   border-radius: 3px;
-  border: 1px solid steelblue;
+  /* border: 1px solid steelblue; */
   line-height: 1.6rem;
 }
 
 .review {
   padding: 1rem 2rem;
   color: #fff;
-  background-color: black;
+  /* background-color: black; */
   z-index: 2;
 }
 
@@ -82,7 +82,7 @@
   
 }
 .deleteReview{
-    background-color: #f44336;
+    background-color: #9e615d;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -93,5 +93,5 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
-    float: right;
+    float: center;
 }

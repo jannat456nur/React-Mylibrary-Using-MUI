@@ -1,68 +1,57 @@
 [
-    {
-
-        "title": "Ghost Forest",
-        "author": "Pik-Shuen Fung",
-        "image": "https://www.rd.com/wp-content/uploads/2018/11/ghost-forest-book-via-amazon.com_.jpg?resize=768,768"
-    },
-    {
-      
-        "title": "Navigate Your Stars",
-        "author": "Jesmyn Ward",
-        "image": "https://www.rd.com/wp-content/uploads/2018/11/navigate-your-stars-book-via-amazon.com_.jpg?resize=768,768"
-    },
-    {
-      
-        "title": "The House on Mango Street",
-        "author": "Sandra Cisneros",
-        "image": "https://www.rd.com/wp-content/uploads/2018/11/the-house-on-mago-street-via-amazon.com_.jpg?resize=768,768"
-    },
-    {
-        
-        "title": "The Ones Who Don’t Say They Love You",
-        "author": "Maurice Carlos Ruffin",
-        "image": "https://www.rd.com/wp-content/uploads/2018/11/the-ones-who-dont-say-they-love-you-book-via-amazon.com_.jpg?resize=768,768"
-    },
-    {
-       
-        "title": "Heart Berries",
-        "author": "Terese Marie Mailhot",
-        "image": "https://www.rd.com/wp-content/uploads/2018/11/heart-berries-book-via-amazon.com_.jpg?resize=768,768"
-    },
-    {
-       
-        "title": "Dept. of Speculation",
-        "author": "Jenny Offill",
-        "image": "https://www.rd.com/wp-content/uploads/2018/11/dept-of-speculation-book-via-amazon.com_.jpg?resize=768,768"
-    },
-    {
-        
-        "title": "The Magical Language of Others",
-        "author": "E. J. Koh",
-        "image": "https://www.rd.com/wp-content/uploads/2018/11/the-magical-language-of-others-book-via-amazon.com_.jpg?resize=768,768"
-    },
-    {
-     
-        "title": "Pedro Páramo",
-        "author": "Juan Rulfo",
-        "image": "https://www.rd.com/wp-content/uploads/2018/11/pedro-paramo-book-via-amazon.com_.jpg?resize=768,768"
-    },
-    {
-       
-        "title": "You Better Be Lightning",
-        "author": "Andrea Gibson",
-        "image": "https://www.rd.com/wp-content/uploads/2018/11/you-better-be-lightning-book-via-amazon.com_.jpg?resize=768,768"
-    },
-    {
-     
-        "title": "Homie",
-        "author": "Danez Smith",
-        "image": "https://www.rd.com/wp-content/uploads/2018/11/homie-book-via-amazon.com_.jpg?resize=768,768"
-    },
-    {
-      
-        "title": "The Bluest Eye",
-        "author": "Toni Morrison",
-        "image": "https://www.rd.com/wp-content/uploads/2018/11/the-bluest-eye-book-via-amazon.com_.jpg?resize=768,768"
-    }
+  {
+    "bookname": "Ghost Forest",
+    "authername": "Pik-Shuen Fung",
+    "image": "https://www.rd.com/wp-content/uploads/2018/11/ghost-forest-book-via-amazon.com_.jpg?resize=768,768"
+  },
+  {
+    "bookname": "Navigate Your Stars",
+    "authername": "Jesmyn Ward",
+    "image": "https://www.rd.com/wp-content/uploads/2018/11/navigate-your-stars-book-via-amazon.com_.jpg?resize=768,768"
+  },
+  {
+    "bookname": "The House on Mango Street",
+    "authername": "Sandra Cisneros",
+    "image": "https://www.rd.com/wp-content/uploads/2018/11/the-house-on-mago-street-via-amazon.com_.jpg?resize=768,768"
+  },
+  {
+    "bookname": "The Ones Who Don’t Say They Love You",
+    "authername": "Maurice Carlos Ruffin",
+    "image": "https://www.rd.com/wp-content/uploads/2018/11/the-ones-who-dont-say-they-love-you-book-via-amazon.com_.jpg?resize=768,768"
+  },
+  {
+    "bookname": "Heart Berries",
+    "authername": "Terese Marie Mailhot",
+    "image": "https://www.rd.com/wp-content/uploads/2018/11/heart-berries-book-via-amazon.com_.jpg?resize=768,768"
+  },
+  {
+    "bookname": "Dept. of Speculation",
+    "authername": "Jenny Offill",
+    "image": "https://www.rd.com/wp-content/uploads/2018/11/dept-of-speculation-book-via-amazon.com_.jpg?resize=768,768"
+  },
+  {
+    "bookname": "The Magical Language of Others",
+    "authername": "E. J. Koh",
+    "image": "https://www.rd.com/wp-content/uploads/2018/11/the-magical-language-of-others-book-via-amazon.com_.jpg?resize=768,768"
+  },
+  {
+    "bookname": "Pedro Páramo",
+    "authername": "Juan Rulfo",
+    "image": "https://www.rd.com/wp-content/uploads/2018/11/pedro-paramo-book-via-amazon.com_.jpg?resize=768,768"
+  },
+  {
+    "bookname": "You Better Be Lightning",
+    "authername": "Andrea Gibson",
+    "image": "https://www.rd.com/wp-content/uploads/2018/11/you-better-be-lightning-book-via-amazon.com_.jpg?resize=768,768"
+  },
+  {
+    "bookname": "Homie",
+    "authorname": "Danez Smith",
+    "image": "https://www.rd.com/wp-content/uploads/2018/11/homie-book-via-amazon.com_.jpg?resize=768,768"
+  },
+  {
+    "bookname": "The Bluest Eye",
+    "authername": "Toni Morrison",
+    "image": "https://www.rd.com/wp-content/uploads/2018/11/the-bluest-eye-book-via-amazon.com_.jpg?resize=768,768"
+  }
 ]

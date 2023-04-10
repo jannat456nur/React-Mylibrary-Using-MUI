@@ -12,7 +12,7 @@ import './Book.css'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 
 const Book = (props) => {
-  const { title, author, image } = props.book
+  const { bookname, authername, image } = props.book
   console.log(props.book)
   return (
     <Grid item xs={12} sm={6} md={3} lg={3}>
@@ -35,14 +35,14 @@ const Book = (props) => {
         >
           <CardContent sx={{ flex: '1 0 auto' }}>
             <Typography component="div" variant="h5">
-              {title}
+              {bookname}
             </Typography>
             <Typography
               variant="subtitle1"
               color="text.secondary"
               component="div"
             >
-              -by{author}
+              -by{authername}
             </Typography>
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />

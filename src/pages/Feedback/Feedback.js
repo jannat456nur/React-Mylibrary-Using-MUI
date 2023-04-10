@@ -5,42 +5,25 @@ import {
   Chip,
   Grid,
   TextField,
-  Typography,
 } from '@mui/material'
-import React, { useContext, useState } from 'react'
-import Header from '../shared/Header/Header'
-import Footer from '../shared/Footer/Footer'
+import React from 'react'
 import './Feedback.css'
 import SendIcon from '@mui/icons-material/Send'
-import { AuthContext } from '../../context/AuthProvider/AuthProvider'
+
 
 const Feedback = () => {
-  const { user } = useContext(AuthContext)
-  // const initialInfo = { userName: user.name, userText: user.text }
-  // const [info, setInfo] = useState(initialInfo)
+  
+
 
   const handleSubmit = (e) => {
-    // const form = new FormData(e.target)
+     const form = new FormData(e.currentTarget);
+  
+      const userData = {
+            username: form.get('name'),
+            description: form.get('text'),
+        };
 
-    // const newInfo = { ...info }
-    // for (let field of form) {
-    //   newInfo[field[0]] = field[1]
-    // }
-    // setInfo(newInfo)
-    // console.log(newInfo)
-    // const form = new FormData(e.currentTarget)
-    // const data = {
-    //   username: form.get('userName'),
-    //   description: form.get('description'),
-    // }
-    // console.log(data)
-
-
-    const userData = {
-      userName: user.name,
-      description: user.description,
-    
-    }
+    console.log(userData)
     //send data to server
     fetch('http://localhost:5000/feedback', {
       method: 'POST',
@@ -48,7 +31,7 @@ const Feedback = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userData),
-      // console.log(userData)
+      
     })
       .then((res) => res.json())
       .then((data) => {
@@ -97,14 +80,14 @@ const Feedback = () => {
                 />
                 <form onSubmit={handleSubmit}>
                   <TextField
-                    id=" Your Name*"
+                    id=" name*"
                     label=" Your Name*"
                     multiline
                     required
                     autoFocus
                     maxRows={4}
                     placeholder="Your Name"
-                    name="userName"
+                    name="name"
                     // onBlur={handleOnBlur}
                     sx={{
                       width: '100%',
@@ -116,7 +99,7 @@ const Feedback = () => {
                   <TextField
                     id=" Review from heart*"
                     label="Review from heart*"
-                    name="description"
+                    name="text"
                     // onBlur={handleOnBlur}
                     multiline
                     required

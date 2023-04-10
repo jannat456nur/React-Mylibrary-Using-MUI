@@ -1,31 +1,26 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import CssBaseline from '@mui/material/CssBaseline'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
-import InboxIcon from '@mui/icons-material/MoveToInbox'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemText from '@mui/material/ListItemText'
-import MailIcon from '@mui/icons-material/Mail'
 import MenuIcon from '@mui/icons-material/Menu'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import MakeAdmin from '../MakeAdmin/MakeAdmin'
 import { Link, Outlet } from 'react-router-dom'
 import GridViewIcon from '@mui/icons-material/GridView'
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import DeleteIcon from '@mui/icons-material/Delete'
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+import AddIcon from '@mui/icons-material/Add'
 import './Dashboard.css'
-import HomeIcon from '@mui/icons-material/Home'
 import ImportContactsIcon from '@mui/icons-material/ImportContacts'
-import ManageCourse from '../ManageCourse/ManageCourse'
-import ManageReview from '../ManageReview/ManageReview'
-import ManageUser from '../ManageUser/ManageUser'
-import { Button } from '@mui/material'
 
 const drawerWidth = 240
 
@@ -38,85 +33,86 @@ const Dashboard = (props) => {
   }
   const drawer = (
     <div>
-    <Box className="dashboardLogo">
+      <Box className="dashboardLogo">
         <ImportContactsIcon
-            sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
-          />
-              <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            myLibrary
-          </Typography>
-    </Box>
+          sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
+        />
+        <Typography
+          variant="h6"
+          noWrap
+          component="a"
+          href="/"
+          sx={{
+            mr: 2,
+            display: { xs: 'none', md: 'flex' },
+            fontFamily: 'monospace',
+            fontWeight: 700,
+            letterSpacing: '.3rem',
+            color: 'inherit',
+            textDecoration: 'none',
+          }}
+        >
+          myLibrary
+        </Typography>
+      </Box>
       <Divider />
       <Box>
         <List>
-
           <ListItem disablePadding>
             <ListItemButton className="dashboardButton">
-              <GridViewIcon />
-              <Link className="dashboardLink" to='/dashboard/home' >
-              Dashboard
+              <DashboardIcon />
+              <Link className="dashboardLink" to="/dashboard/home">
+                Dashboard
               </Link>
             </ListItemButton>
-
           </ListItem>
-           <Divider />
+          <Divider />
           <ListItem disablePadding>
             <ListItemButton className="dashboardButton">
-              <GridViewIcon />
+              <AdminPanelSettingsIcon />
               <Link className="dashboardLink" to="/dashboard/makeadmin">
                 MakeAdmin
               </Link>
             </ListItemButton>
-
           </ListItem>
-           <Divider />
+          <Divider />
           <ListItem disablePadding>
             <ListItemButton className="dashboardButton">
-              <GridViewIcon />
-              <Link className="dashboardLink" to="/dashboard/manageBooks">
-                ManageBooks
+              <DeleteIcon />
+              <Link className="dashboardLink" to="/dashboard/deleteBooks">
+                DeleteBooks
               </Link>
             </ListItemButton>
-
           </ListItem>
-           <Divider />
+          <Divider />
           <ListItem disablePadding>
             <ListItemButton className="dashboardButton">
-              <GridViewIcon />
+              <AddIcon />
+              <Link className="dashboardLink" to="/dashboard/addBooks">
+                AddBooks
+              </Link>
+            </ListItemButton>
+          </ListItem>
+          <Divider />
+          <ListItem disablePadding>
+            <ListItemButton className="dashboardButton">
+              <RateReviewIcon />
               <Link className="dashboardLink" to="/dashboard/manageReview">
-               ManageReview
+                ManageReview
               </Link>
             </ListItemButton>
-
           </ListItem>
-           <Divider />
+          <Divider />
           <ListItem disablePadding>
             <ListItemButton className="dashboardButton">
-              <GridViewIcon />
+              <VerifiedUserIcon />
               <Link className="dashboardLink" to="/dashboard/manageUser">
-               ManageUser
+                ManageUser
               </Link>
             </ListItemButton>
-
           </ListItem>
-           <Divider />
-
+          <Divider />
         </List>
-
       </Box>
     </div>
   )
