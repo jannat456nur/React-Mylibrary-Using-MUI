@@ -23,10 +23,12 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider'
 const SignIn = () => {
   const [loginData, setLoginData] = useState('')
   const { signIn, user, authError, isLoading } = useContext(AuthContext)
-  const [ setLoginUserEmail] = useState('')
+  const [loginUserEmail, setLoginUserEmail] = useState('')
+  // const [token] = useToken()
+  const location = useLocation()
+  const navigate = useNavigate()
 
-
-
+  const from = location.state?.from?.pathname || '/'
 
   const handleOnChange = (e) => {
     const field = e.target.name
@@ -47,6 +49,7 @@ const SignIn = () => {
 
   return (
     <>
+      {/* <Header />{' '} */}
       <Box sx={{ flexGrow: 1, m: 5 }}>
         <Grid container>
           <Grid item xs={12} sm={6} md={7} lg={7} data-aos="flip-up">
@@ -114,6 +117,16 @@ const SignIn = () => {
                   >
                     Sign In
                   </button>
+                  {/* {
+                    user?.email?
+                    <button onClick={signOutUser} className="signInButton" size="small" type="submit"  value="sign in">
+                    Sign out
+                  </button>
+                   :  
+                    <button className="signInButton" size="small" type="submit"  value="sign in">
+                    Sign In
+                  </button>
+                } */}
                   <Link to="/signup" className="signinLink">
                     Dont have any account?Signup
                   </Link>
@@ -128,6 +141,7 @@ const SignIn = () => {
           </Grid>
         </Grid>
       </Box>
+      {/* <Footer /> */}
     </>
   )
 }

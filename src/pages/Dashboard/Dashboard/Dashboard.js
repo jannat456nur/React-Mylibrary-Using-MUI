@@ -22,7 +22,7 @@ import AddIcon from '@mui/icons-material/Add'
 import HomeIcon from '@mui/icons-material/Home';
 import './Dashboard.css'
 import ImportContactsIcon from '@mui/icons-material/ImportContacts'
-import AuthProvider from '../../../context/AuthProvider/AuthProvider'
+
 
 const drawerWidth = 240
 

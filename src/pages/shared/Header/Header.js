@@ -17,12 +17,11 @@ import { Link, NavLink } from 'react-router-dom'
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider'
 
 export default function Header() {
- 
-  const settings = [ 'Dashboard']
+  const settings = ['Dashboard']
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
-  const { user, signOutUser,admin } = React.useContext(AuthContext)
+  const { user, signOutUser, admin } = React.useContext(AuthContext)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
@@ -181,7 +180,7 @@ export default function Header() {
                       ? {
                           color: 'black',
                         }
-                      : { color:'#0d284e' }
+                      : { color: '#0d284e' }
                   }
                   to="/contact"
                   className="headerLink"
@@ -202,9 +201,8 @@ export default function Header() {
                     isActive
                       ? {
                           color: 'black',
-                          
                         }
-                      : { color:'#0d284e' }
+                      : { color: '#0d284e' }
                   }
                   to="/signup"
                   className="headerLink"
@@ -228,7 +226,7 @@ export default function Header() {
                         ? {
                             color: 'black',
                           }
-                        : { color: '#0d284e'}
+                        : { color: '#0d284e' }
                     }
                     to="/signin"
                     onClick={signOutUser}
@@ -397,37 +395,53 @@ export default function Header() {
             )}
           </Box>
           {/* user menu */}
-         {
-            user?.admin &&  <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+          {admin && (
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Button
+                    sx={{
+                      display: 'block',
+                    }}
+                  >
+                    <NavLink
+                      style={({ isActive }) =>
+                        isActive
+                          ? {
+                              color: 'black',
+                            }
+                          : { color: '#0d284e' }
+                      }
+                      to="/dashboard"
+                      className="headerLink"
+                    >
+                     Dashboard
+                    </NavLink>
+                  </Button>
                 </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-         }
+              </Menu>
+            </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
