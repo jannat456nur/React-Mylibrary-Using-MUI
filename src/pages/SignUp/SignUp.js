@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import Header from '../shared/Header/Header'
 import {
   Alert,
   Box,
@@ -11,7 +10,6 @@ import {
   Typography,
 } from '@mui/material'
 import { Link } from 'react-router-dom'
-import Footer from '../shared/Footer/Footer'
 import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead'
 import './SignUp.css'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider'
@@ -40,7 +38,7 @@ const SignUp = () => {
     signInUsingGoogle()
   }
 
-  const handleLoginSubmit = (e) => {
+  const handleSignUpSubmit = (e) => {
     createUser(loginData.email, loginData.password)
     e.preventDefault()
   }
@@ -90,12 +88,12 @@ const SignUp = () => {
                     Sign Up
                   </Typography>
                   {!isLoading && (
-                    <form onSubmit={handleLoginSubmit}>
+                    <form onSubmit={handleSignUpSubmit}>
                       <TextField
                         id=" Your Name*"
                         name="name"
                         label=" Your Name*"
-                        multiline
+                        type="text"
                         autoFocus
                         required
                         maxRows={4}

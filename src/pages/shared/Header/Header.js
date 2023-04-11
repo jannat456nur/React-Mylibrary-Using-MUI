@@ -17,12 +17,12 @@ import { Link, NavLink } from 'react-router-dom'
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider'
 
 export default function Header() {
-  const pages = ['Home', 'Books', 'Feedback', 'Contact', 'SignUp', 'SignIn']
-  const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
+ 
+  const settings = [ 'Dashboard']
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
-  const { user, signOutUser } = React.useContext(AuthContext)
+  const { user, signOutUser,admin } = React.useContext(AuthContext)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
@@ -361,9 +361,9 @@ export default function Header() {
             >
               SignUp
             </NavLink>
-            <Link to="/dashboard" className="headerLink">
+            {/* <Link to="/dashboard" className="headerLink">
               Dashboard
-            </Link>
+            </Link> */}
 
             {user?.email ? (
               <NavLink
@@ -397,7 +397,8 @@ export default function Header() {
             )}
           </Box>
           {/* user menu */}
-          <Box sx={{ flexGrow: 0 }}>
+         {
+            user?.admin &&  <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -426,6 +427,7 @@ export default function Header() {
               ))}
             </Menu>
           </Box>
+         }
         </Toolbar>
       </Container>
     </AppBar>

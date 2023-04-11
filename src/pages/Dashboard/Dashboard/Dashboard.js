@@ -19,14 +19,17 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import AddIcon from '@mui/icons-material/Add'
+import HomeIcon from '@mui/icons-material/Home';
 import './Dashboard.css'
 import ImportContactsIcon from '@mui/icons-material/ImportContacts'
+import AuthProvider from '../../../context/AuthProvider/AuthProvider'
 
 const drawerWidth = 240
 
 const Dashboard = (props) => {
   const { window } = props
   const [mobileOpen, setMobileOpen] = React.useState(false)
+  // const {admin} = AuthProvider()
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -164,9 +167,9 @@ const Dashboard = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Dashboard
-          </Typography>
+          <Link className='homeIcon' to='/'>
+          <HomeIcon/>
+          </Link>
         </Toolbar>
       </AppBar>
       <Box

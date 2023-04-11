@@ -20,15 +20,13 @@ import TextField from '@mui/material/TextField'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider'
 
-
 const SignIn = () => {
   const [loginData, setLoginData] = useState('')
-  const { signIn,user ,authError,isLoading} = useContext(AuthContext)
-  
-  const location = useLocation();
-  const navigate = useNavigate();
+  const { signIn, user, authError, isLoading } = useContext(AuthContext)
+  const [ setLoginUserEmail] = useState('')
 
-const from = location.state?.from?.pathname || '/';
+
+
 
   const handleOnChange = (e) => {
     const field = e.target.name
@@ -37,20 +35,18 @@ const from = location.state?.from?.pathname || '/';
     const newLoginData = { ...loginData, [field]: value }
     setLoginData(newLoginData)
     console.log(newLoginData)
-    
   }
 
   const handleSignIn = (e) => {
     signIn(loginData.email, loginData.password)
-    
-    navigate(from, { replace: true })
+    setLoginUserEmail(loginData.email)
+
+    // navigate(from, { replace: true })
     e.preventDefault()
   }
 
-
   return (
     <>
-      {/* <Header />{' '} */}
       <Box sx={{ flexGrow: 1, m: 5 }}>
         <Grid container>
           <Grid item xs={12} sm={6} md={7} lg={7} data-aos="flip-up">
@@ -64,7 +60,7 @@ const from = location.state?.from?.pathname || '/';
                 margin: 2,
                 padding: 2,
                 height: 600,
-               
+
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -110,34 +106,28 @@ const from = location.state?.from?.pathname || '/';
                     onChange={handleOnChange}
                     sx={{ width: '100%', margin: 1, marginLeft: 0 }}
                   />
-                  <button className="signInButton" size="small" type="submit"  value="sign in">
+                  <button
+                    className="signInButton"
+                    size="small"
+                    type="submit"
+                    value="sign in"
+                  >
                     Sign In
                   </button>
-                  {/* {
-                    user?.email?
-                    <button onClick={signOutUser} className="signInButton" size="small" type="submit"  value="sign in">
-                    Sign out
-                  </button>
-                   :  
-                    <button className="signInButton" size="small" type="submit"  value="sign in">
-                    Sign In
-                  </button>
-                } */}
                   <Link to="/signup" className="signinLink">
                     Dont have any account?Signup
                   </Link>
                 </form>
-                   {isLoading && <CircularProgress />}
-                  {user?.email && ( // if user is logged in then show this message in console and redirect to home page
-                    <Alert severity="success">user login successfully!</Alert>
-                  )}
-                  {authError && <Alert severity="error">{authError}</Alert>}
+                {isLoading && <CircularProgress />}
+                {user?.email && ( // if user is logged in then show this message in console and redirect to home page
+                  <Alert severity="success">user login successfully!</Alert>
+                )}
+                {authError && <Alert severity="error">{authError}</Alert>}
               </CardContent>
             </Card>
           </Grid>
         </Grid>
       </Box>
-      {/* <Footer /> */}
     </>
   )
 }

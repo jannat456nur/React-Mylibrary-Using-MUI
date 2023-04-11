@@ -6,28 +6,12 @@ const MakeAdmin = () => {
   const [email, setEmail] = useState('')
   const handleOnBlur = (e) => {
     setEmail(e.target.value)
+    console.log(email)
   }
 
-  //   const handleOnSubmit = (e) => {
-  //     const user = { email }
-  //     fetch('http://localhost:5000/users', {
-  //       method: 'PUT',
-  //       headers: {
-  //         'content-type': 'application/json',
-  //       },
-  //       body: JSON.stringify(user),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data)
-  //       })
-  //     alert('Successfully Added Admin')
-  //     e.preventDefault()
-  //   }
-
-  const handleOnSubmit = (id) => {
+  const handleOnSubmit = (e) => {
     const user = { email }
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch("http://localhost:5000/users/admin", {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -39,6 +23,7 @@ const MakeAdmin = () => {
         console.log(data)
       })
     alert('Successfully Added Admin')
+    e.preventDefault()
   }
   return (
     <div>
