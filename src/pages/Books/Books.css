@@ -1,1 +1,27 @@
-
+.textField {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  border-radius: 5px;
+}
+.textField:focus {
+  border: 3px solid #555;
+}
+.formButton {
+  background-color: #0d284e;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 4px 2px;
+  cursor: pointer;
+}

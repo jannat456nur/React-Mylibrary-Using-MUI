@@ -15,7 +15,7 @@ import Feedback from './../../Feedback/Feedback';
 const Feedbacks = () => {
   const [feedbacks, setFeedbacks] = useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/feedback')
+    fetch('https://amused-pleat-worm.cyclic.app/feedback')
       .then((res) => res.json())
       .then((data) => setFeedbacks(data))
   }, [])

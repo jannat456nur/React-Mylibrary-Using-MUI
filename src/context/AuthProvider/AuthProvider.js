@@ -92,7 +92,7 @@ const AuthProvider = ({ children }) => {
 
   // for admin panel
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://amused-pleat-worm.cyclic.app/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin))
   }, [user.email])
@@ -112,7 +112,7 @@ const AuthProvider = ({ children }) => {
 
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName }
-    fetch('http://localhost:5000/users', {
+    fetch('https://amused-pleat-worm.cyclic.app/users', {
       method: method,
       headers: {
         'content-type': 'application/json',

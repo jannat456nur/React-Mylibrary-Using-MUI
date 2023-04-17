@@ -15,7 +15,7 @@ const AddBooks = () => {
 
     console.log(userData)
     //send data to server
-    fetch('http://localhost:5000/bookDataCollection', {
+    fetch('https://amused-pleat-worm.cyclic.app/bookDataCollection', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

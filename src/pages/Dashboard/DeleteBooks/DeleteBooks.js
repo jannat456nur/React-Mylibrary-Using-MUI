@@ -17,13 +17,13 @@ const DeleteBooks = () => {
 
   // })
   useEffect(() => {
-    fetch('http://localhost:5000/bookDataCollection')
+    fetch('https://amused-pleat-worm.cyclic.app/bookDataCollection')
       .then((res) => res.json())
       .then((data) => setBooks(data))
   }, [])
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/bookDataCollection/${id}`, {
+    fetch(`https://amused-pleat-worm.cyclic.app/bookDataCollection/${id}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())

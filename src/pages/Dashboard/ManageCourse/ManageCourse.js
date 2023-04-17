@@ -8,14 +8,14 @@ import { Button, CardActionArea, CardActions, Grid, Box, CircularProgress } from
 const ManageCourse = () => {
     const [courses, setCourses] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/course')
+        fetch('https://amused-pleat-worm.cyclic.app/course')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])
     const handleDeleteUser = id => {
         const proceed = window.confirm('Are you sure to delete?');
         if (proceed) {
-            fetch(`http://localhost:5000/course/${id}`, {
+            fetch(`https://amused-pleat-worm.cyclic.app/course/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

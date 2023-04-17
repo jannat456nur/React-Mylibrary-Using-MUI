@@ -14,13 +14,13 @@ import './ManageReview.css'
 const ManageREview = () => {
   const [feedbacks, setFeedbacks] = useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/feedback')
+    fetch('https://amused-pleat-worm.cyclic.app/feedback')
       .then((res) => res.json())
       .then((data) => setFeedbacks(data))
   }, [])
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/feedback/${id}`, {
+    fetch(`https://amused-pleat-worm.cyclic.app/feedback/${id}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())

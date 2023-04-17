@@ -21,7 +21,7 @@ const ManageUser = () => {
 
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`https://amused-pleat-worm.cyclic.app/users${id}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())

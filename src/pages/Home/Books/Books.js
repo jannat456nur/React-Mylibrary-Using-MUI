@@ -16,7 +16,7 @@ const Books = () => {
 
   // })
   useEffect(() => {
-    fetch('http://localhost:5000/bookDataCollection')
+    fetch('https://amused-pleat-worm.cyclic.app/bookDataCollection')
       .then((res) => res.json())
       .then((data) => setBooks(data))
   }, [])
