@@ -5,7 +5,7 @@ import SignIn from '../../pages/SignIn/SignIn'
 import SignUp from '../../pages/SignUp/SignUp'
 import Contact from '../../pages/Contact/Contact'
 import Feedback from '../../pages/Feedback/Feedback'
-import Books from '../../pages/Home/Books/Books'
+import Books from '../../pages/Books/Books'
 import Dashboard from '../../pages/Dashboard/Dashboard/Dashboard'
 import PrivateRoute from './../PrivateRoute/PrivateRoute'
 import DashboardLayout from '../../Layout/DashboardLayout/Dashboardlayout'
@@ -16,6 +16,7 @@ import ManageUser from '../../pages/Dashboard/ManageUser/ManageUser'
 import DashboardHome from '../../pages/Dashboard/DashboardHome/DashboardHome'
 import DeleteBooks from '../../pages/Dashboard/DeleteBooks/DeleteBooks'
 import AddBooks from '../../pages/Dashboard/AddBooks/AddBooks'
+import BookDetails from '../../pages/Home/BookDetails/BookDetails'
 
 const router = createBrowserRouter([
   {
@@ -43,10 +44,15 @@ const router = createBrowserRouter([
         path: '/feedback',
         element: <Feedback></Feedback>,
       },
+     
       {
         path: '/books',
         element: <Books></Books>,
       },
+      // {
+      //   path: '/bookDataCollection/:id',
+      //   element: <BookDetails></BookDetails>,
+      // },
     ],
   },
   //did not work private route

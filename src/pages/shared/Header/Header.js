@@ -13,11 +13,11 @@ import MenuItem from '@mui/material/MenuItem'
 import MenuIcon from '@mui/icons-material/Menu'
 import ImportContactsIcon from '@mui/icons-material/ImportContacts'
 import { Menu } from '@mui/material'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider'
 
 export default function Header() {
-  const settings = ['Dashboard']
+
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
@@ -359,9 +359,7 @@ export default function Header() {
             >
               SignUp
             </NavLink>
-            {/* <Link to="/dashboard" className="headerLink">
-              Dashboard
-            </Link> */}
+            
 
             {user?.email ? (
               <NavLink

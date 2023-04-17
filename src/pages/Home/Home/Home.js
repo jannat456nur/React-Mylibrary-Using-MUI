@@ -5,6 +5,8 @@ import Books from '../Books/Books'
 import Footer from '../../shared/Footer/Footer'
 import Feedback from '../../Feedback/Feedback'
 import Feedbacks from '../Feedbacks/Feedbacks'
+import Gallery from '../Gallery/Gallery'
+import Faq from '../Faq/Faq'
 
 const Home = () => {
   return (
@@ -12,7 +14,11 @@ const Home = () => {
       {/* <Header /> */}
       <Banner />
       <Books />
+
+      <Gallery />
+      <Faq />
       <Feedbacks />
+
       {/* <Footer /> */}
     </div>
   )

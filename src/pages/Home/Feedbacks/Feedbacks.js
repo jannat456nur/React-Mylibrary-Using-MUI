@@ -8,8 +8,9 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper'
-import { Typography } from '@mui/material'
+import { Chip, Stack, Typography } from '@mui/material'
 import './Feedbacks.css'
+import Feedback from './../../Feedback/Feedback';
 
 const Feedbacks = () => {
   const [feedbacks, setFeedbacks] = useState([])
@@ -20,10 +21,11 @@ const Feedbacks = () => {
   }, [])
   return (
     <>
-      <Typography variant="h5" sx={{ py: 2, pl: 2 }}>
+      <Typography variant="h4" sx={{ py: 2, pl: 2 }}>
         {' '}
-        MANAGE FEEDBACKS
+        Feedbacks
       </Typography>
+     
       <Swiper
         spaceBetween={50}
         // centeredSlides={true}
@@ -60,6 +62,7 @@ const Feedbacks = () => {
         // }}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
+        watchSlidesProgress={true}
       >
         {feedbacks.map((user) => (
           <SwiperSlide key={user.id}>

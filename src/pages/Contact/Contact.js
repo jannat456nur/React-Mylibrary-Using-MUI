@@ -24,7 +24,12 @@ const Contact = () => {
         </Typography>
         <Grid container>
           <Grid item xs={12} sm={6} md={6} lg={6}>
-            <img src={image} alt="contactImage" className="contactImage" data-aos="flip-left" />
+            <img
+              src={image}
+              alt="contactImage"
+              className="contactImage"
+              data-aos="flip-left"
+            />
           </Grid>
           <Grid item xs={12} sm={6} md={6} lg={6} sx={{ mr: 0 }}>
             <Typography
@@ -32,7 +37,7 @@ const Contact = () => {
               component="div"
               sx={{ marginTop: 10, marginBottom: 5 }}
             >
-              Make an Aggrement
+              Send Me Message
             </Typography>
 
             <TextField

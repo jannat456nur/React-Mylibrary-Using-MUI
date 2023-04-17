@@ -42,9 +42,9 @@ const ManageUser = () => {
             <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card sx={{ maxWidth: 345 }}>
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  {/* <Typography gutterBottom variant="h5" component="div">
                     {user.name}
-                  </Typography>
+                  </Typography> */}
                   <Typography variant="body2" color="text.secondary">
                     {user.email}
                   </Typography>
@@ -59,7 +59,7 @@ const ManageUser = () => {
                 </CardActions>
               </Card>
             </Grid>
-            
+
           ))
         }
         </Grid>

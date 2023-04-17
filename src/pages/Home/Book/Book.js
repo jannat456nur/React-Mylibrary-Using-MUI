@@ -10,9 +10,10 @@ import {
 import React from 'react'
 import './Book.css'
 import FavoriteIcon from '@mui/icons-material/Favorite'
+import { Link } from 'react-router-dom'
 
 const Book = (props) => {
-  const { bookname, authername, image } = props.book
+  const { bookname, authername, image ,_id} = props.book
   console.log(props.book)
   return (
     <Grid item xs={12} sm={6} md={3} lg={3}>
@@ -47,7 +48,9 @@ const Book = (props) => {
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
             </IconButton>
-            <button className="button">Details</button>
+            <Link to={`/bookDataCollection/${_id}`}>
+              <button className="button">Details</button>
+            </Link>
           </CardContent>
         </Box>
         <CardMedia

@@ -1,27 +1,16 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  Chip,
-  Grid,
-  TextField,
-} from '@mui/material'
+import { Box, Card, CardContent, Chip, Grid, TextField } from '@mui/material'
 import React from 'react'
 import './Feedback.css'
 import SendIcon from '@mui/icons-material/Send'
 
-
 const Feedback = () => {
-  
-
-
   const handleSubmit = (e) => {
-     const form = new FormData(e.currentTarget);
-  
-      const userData = {
-            username: form.get('name'),
-            description: form.get('text'),
-        };
+    const form = new FormData(e.currentTarget)
+
+    const userData = {
+      username: form.get('name'),
+      description: form.get('text'),
+    }
 
     console.log(userData)
     //send data to server
@@ -31,7 +20,6 @@ const Feedback = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userData),
-      
     })
       .then((res) => res.json())
       .then((data) => {
@@ -70,7 +58,7 @@ const Feedback = () => {
             >
               <CardContent>
                 <Chip
-                  label="Leave Your Review"
+                  label="Leave Your Comment"
                   variant="outlined"
                   sx={{
                     fontSize: '1.3rem',
@@ -81,12 +69,12 @@ const Feedback = () => {
                 <form onSubmit={handleSubmit}>
                   <TextField
                     id=" name*"
-                    label=" Your Name*"
+                    label=" Full Name*"
                     multiline
                     required
                     autoFocus
                     maxRows={4}
-                    placeholder="Your Name"
+                    placeholder="Full Name"
                     name="name"
                     // onBlur={handleOnBlur}
                     sx={{
@@ -97,15 +85,15 @@ const Feedback = () => {
                     }}
                   />
                   <TextField
-                    id=" Review from heart*"
-                    label="Review from heart*"
+                    id=" Comment*"
+                    label="Comment*"
                     name="text"
                     // onBlur={handleOnBlur}
                     multiline
                     required
                     autoFocus
                     rows={4}
-                    placeholder=" Review from heart*"
+                    placeholder=" Comment*"
                     sx={{ width: '100%', margin: 1, marginLeft: 0 }}
                   />
 
