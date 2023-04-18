@@ -9,9 +9,11 @@ const MakeAdmin = () => {
     console.log(email)
   }
 
+
+  // make admin function here and pass it to the button onClick
   const handleOnSubmit = (e) => {
     const user = { email }
-    fetch("https://amused-pleat-worm.cyclic.app/admin", {
+    fetch('http://localhost:5000/users', {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -25,6 +27,8 @@ const MakeAdmin = () => {
     alert('Successfully Added Admin')
     e.preventDefault()
   }
+
+ 
   return (
     <div>
       <form

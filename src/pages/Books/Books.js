@@ -23,6 +23,7 @@ const Books = ({ value, onChange, placeholder }) => {
     e.preventDefault()
     console.log(book)
     axios
+    // get request to google books api
       .get(
         `https://www.googleapis.com/books/v1/volumes?q=${book}&key=${apiKey}&maxResults=40`,
       )
@@ -38,6 +39,11 @@ const Books = ({ value, onChange, placeholder }) => {
 
   return (
     <>
+    {/* title */}
+    <Typography variant='h4' className='bookTitle' sx={{mt:10}}>
+      Find your Books Of Choice!
+    </Typography>
+      {/* search bar */}
       <form
         onSubmit={handleSubmit}
         style={{
@@ -45,10 +51,11 @@ const Books = ({ value, onChange, placeholder }) => {
           alignItems: 'center',
           justifyContent: 'center',
           marginBottom: '2rem',
-          marginTop: '2rem',
-          height: '350px',
+          marginTop: 20,
+          height: '250px',
         }}
       >
+      
         <TextField
           className="textField"
           type="text"
@@ -73,6 +80,7 @@ const Books = ({ value, onChange, placeholder }) => {
           Search
         </button>
       </form>
+      {/* map through the result array and display the data */}
       <Grid container>
         {result.map((item, index) => {
           return (

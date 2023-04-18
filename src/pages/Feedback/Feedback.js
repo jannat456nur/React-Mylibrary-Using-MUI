@@ -14,7 +14,7 @@ const Feedback = () => {
 
     console.log(userData)
     //send data to server
-    fetch('https://amused-pleat-worm.cyclic.app/feedback', {
+    fetch('http://localhost:5000/feedback', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

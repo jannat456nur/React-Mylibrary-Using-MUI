@@ -11,34 +11,39 @@ import { Grid } from '@mui/material'
 
 const ManageUser = () => {
   const [users, setUsers] = useState([])
+  // fetch data from server
+
   useEffect(() => {
     fetch('http://localhost:5000/users')
       .then((res) => res.json())
-      .then((data) => {const ManageUser = data.filter((user) => user.role !== 'admin')
-      setUsers(ManageUser)}
-      )
+      .then((data) => {
+        const ManageUser = data.filter((user) => user.role !== 'admin')
+        setUsers(ManageUser)
+      })
   }, [])
 
-
+  // delete data from server
   const handleDelete = (id) => {
-    fetch(`https://amused-pleat-worm.cyclic.app/users${id}`, {
-      method: 'DELETE',
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result) {
-          const remaining = users.filter((user) => user._id !== id)
-          setUsers(remaining)
-        }
+    const proceed = window.confirm('Are you sure to delete user?')
+    if (proceed) {
+      fetch(`http://localhost:5000/users/${id}`, {
+        method: 'DELETE',
       })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            alert('User deleted successfully :)')
+            const remainingUsers = users.filter((user) => user._id !== id)
+            setUsers(remainingUsers)
+          }
+        })
+    }
   }
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-        {
-          users.map((user) => (
-
+          {users.map((user) => (
             <Grid item xs={12} sm={6} md={4} lg={3}>
               <Card sx={{ maxWidth: 345 }}>
                 <CardContent>
@@ -50,22 +55,15 @@ const ManageUser = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button
-                    size="small"
-                    onClick={() => handleDelete(user._id)}
-                  >
+                  <Button size="small" onClick={() => handleDelete(user._id)}>
                     Delete
                   </Button>
                 </CardActions>
               </Card>
             </Grid>
-
-          ))
-        }
+          ))}
         </Grid>
       </Box>
-
-      
     </div>
   )
 }

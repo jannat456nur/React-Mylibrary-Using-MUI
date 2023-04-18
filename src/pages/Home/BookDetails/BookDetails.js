@@ -8,9 +8,10 @@ const BookDetails = () => {
   const [bookDetails, setBookDetails] = useState({})
 
   const { _id } = useParams();
+  // fetch data from server
 
   useEffect(() => {
-    fetch(`https://amused-pleat-worm.cyclic.app/bookDataCollection/${_id}}`)
+    fetch(`http://localhost:5000/bookDataCollection/${_id}}`)
       .then((res) => res.json())
       .then((data) => setBookDetails(data))
       

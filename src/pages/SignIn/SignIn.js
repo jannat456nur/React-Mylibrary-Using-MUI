@@ -117,16 +117,7 @@ const SignIn = () => {
                   >
                     Sign In
                   </button>
-                  {/* {
-                    user?.email?
-                    <button onClick={signOutUser} className="signInButton" size="small" type="submit"  value="sign in">
-                    Sign out
-                  </button>
-                   :  
-                    <button className="signInButton" size="small" type="submit"  value="sign in">
-                    Sign In
-                  </button>
-                } */}
+              
                   <Link to="/signup" className="signinLink">
                     Dont have any account?Signup
                   </Link>

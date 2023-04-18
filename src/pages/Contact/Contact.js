@@ -18,10 +18,12 @@ const Contact = () => {
     <>
       {/* <Header />{' '} */}
       <Box sx={{ flexGrow: 1 }}>
+        {/* title  */}
         <Typography variant="h4" sx={{ mt: 5 }}>
           {' '}
           Contact Me
         </Typography>
+        
         <Grid container>
           <Grid item xs={12} sm={6} md={6} lg={6}>
             <img

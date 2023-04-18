@@ -12,6 +12,7 @@ import {
 import app from '../../firebase/firebase.config'
 import { Navigate } from 'react-router-dom'
 
+
 export const AuthContext = createContext(null)
 export const auth = getAuth(app)
 
@@ -47,6 +48,7 @@ const AuthProvider = ({ children }) => {
       .finally(() => setLoading(false))
   }
 
+  //sign in is a function that will be called when the user clicks the sign in button
   const signIn = (email, password) => {
     setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
@@ -64,6 +66,7 @@ const AuthProvider = ({ children }) => {
       .finally(() => setLoading(false))
   }
 
+  //signInUsingGoogle is a function that will be called when the user clicks the sign in with google button
   const signInUsingGoogle = () => {
     const googleProvider = new GoogleAuthProvider()
     signInWithPopup(auth, googleProvider)
@@ -92,7 +95,7 @@ const AuthProvider = ({ children }) => {
 
   // for admin panel
   useEffect(() => {
-    fetch(`https://amused-pleat-worm.cyclic.app/users/${user.email}`)
+    fetch(`http://localhost:5000/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin))
   }, [user.email])
@@ -109,10 +112,11 @@ const AuthProvider = ({ children }) => {
       })
       .finally(() => setLoading(false))
   }
+  //saveUser is a function that will be called when the user clicks the sign up button
 
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName }
-    fetch('https://amused-pleat-worm.cyclic.app/users', {
+    fetch('http://localhost:5000/users', {
       method: method,
       headers: {
         'content-type': 'application/json',
