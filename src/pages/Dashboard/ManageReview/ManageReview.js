@@ -15,14 +15,14 @@ const ManageREview = () => {
   const [feedbacks, setFeedbacks] = useState([])
   // fetch data from server
   useEffect(() => {
-    fetch('http://localhost:5000/feedback')
+    fetch('https://amused-pleat-worm.cyclic.app/feedback')
       .then((res) => res.json())
       .then((data) => setFeedbacks(data))
   }, [])
 
   // delete data from server
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/feedback/${id}`, {
+    fetch(`https://amused-pleat-worm.cyclic.app/feedback/${id}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())

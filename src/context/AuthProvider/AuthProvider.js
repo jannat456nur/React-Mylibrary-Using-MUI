@@ -32,15 +32,16 @@ const AuthProvider = ({ children }) => {
         // save user to the database
         saveUser(email, displayName, 'POST')
         setAuthError('')
-           Navigate('/')
+        
         // send name to firebase after creation
         updateProfile(auth.currentUser, {
           displayName,
         })
-          .then(() => {})
-          .catch((error) => {})
+        // navigate to home page
+           Navigate('/');
      
       })
+      
       .catch((error) => {
         setAuthError(error.message)
         console.log(error)
@@ -95,7 +96,7 @@ const AuthProvider = ({ children }) => {
 
   // for admin panel
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://amused-pleat-worm.cyclic.app/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin))
   }, [user.email])
@@ -116,7 +117,7 @@ const AuthProvider = ({ children }) => {
 
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName }
-    fetch('http://localhost:5000/users', {
+    fetch('https://amused-pleat-worm.cyclic.app/users', {
       method: method,
       headers: {
         'content-type': 'application/json',

@@ -13,7 +13,7 @@ const MakeAdmin = () => {
   // make admin function here and pass it to the button onClick
   const handleOnSubmit = (e) => {
     const user = { email }
-    fetch('http://localhost:5000/users', {
+    fetch('https://amused-pleat-worm.cyclic.app/users', {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',

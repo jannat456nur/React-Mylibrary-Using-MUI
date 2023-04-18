@@ -14,7 +14,7 @@ const ManageUser = () => {
   // fetch data from server
 
   useEffect(() => {
-    fetch('http://localhost:5000/users')
+    fetch('https://amused-pleat-worm.cyclic.app/users')
       .then((res) => res.json())
       .then((data) => {
         const ManageUser = data.filter((user) => user.role !== 'admin')
@@ -26,7 +26,7 @@ const ManageUser = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm('Are you sure to delete user?')
     if (proceed) {
-      fetch(`http://localhost:5000/users/${id}`, {
+      fetch(`https://amused-pleat-worm.cyclic.app/users/${id}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())
