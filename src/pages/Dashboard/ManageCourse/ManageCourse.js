@@ -16,7 +16,7 @@ const ManageCourse = () => {
   const [courses, setCourses] = useState([])
   // fetch data from server
   useEffect(() => {
-    fetch('https://amused-pleat-worm.cyclic.app/course')
+    fetch('https://mylibraryserver.vercel.app/course')
       .then((res) => res.json())
       .then((data) => setCourses(data))
   }, [])
@@ -24,7 +24,7 @@ const ManageCourse = () => {
   const handleDeleteUser = (id) => {
     const proceed = window.confirm('Are you sure to delete?')
     if (proceed) {
-      fetch(`https://amused-pleat-worm.cyclic.app/course/${id}`, {
+      fetch(`https://mylibraryserver.vercel.app/course/${id}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())

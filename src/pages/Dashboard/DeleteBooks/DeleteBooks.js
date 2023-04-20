@@ -18,14 +18,14 @@ const DeleteBooks = () => {
   // })
   // fetch data from server
   useEffect(() => {
-    fetch('https://amused-pleat-worm.cyclic.app/bookDataCollection')
+    fetch('https://mylibraryserver.vercel.app/bookDataCollection')
       .then((res) => res.json())
       .then((data) => setBooks(data))
   }, [])
 
   // delete data from server
   const handleDelete = (id) => {
-    fetch(`https://amused-pleat-worm.cyclic.app/bookDataCollection/${id}`, {
+    fetch(`https://mylibraryserver.vercel.app/bookDataCollection/${id}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())

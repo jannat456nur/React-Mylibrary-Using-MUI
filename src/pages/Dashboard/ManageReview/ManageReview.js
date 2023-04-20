@@ -15,14 +15,14 @@ const ManageREview = () => {
   const [feedbacks, setFeedbacks] = useState([])
   // fetch data from server
   useEffect(() => {
-    fetch('https://amused-pleat-worm.cyclic.app/feedback')
+    fetch('https://mylibraryserver.vercel.app/feedback')
       .then((res) => res.json())
       .then((data) => setFeedbacks(data))
   }, [])
 
   // delete data from server
   const handleDelete = (id) => {
-    fetch(`https://amused-pleat-worm.cyclic.app/feedback/${id}`, {
+    fetch(`https://mylibraryserver.vercel.app/feedback/${id}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())

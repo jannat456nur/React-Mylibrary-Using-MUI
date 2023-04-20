@@ -10,13 +10,13 @@ import 'swiper/css/navigation'
 import { Autoplay, Pagination, Navigation } from 'swiper'
 import { Chip, Stack, Typography } from '@mui/material'
 import './Feedbacks.css'
-import Feedback from './../../Feedback/Feedback';
+import Feedback from './../../Feedback/Feedback'
 
 const Feedbacks = () => {
   const [feedbacks, setFeedbacks] = useState([])
   // fetch data from server
   useEffect(() => {
-    fetch('https://amused-pleat-worm.cyclic.app/feedback')
+    fetch('https://mylibraryserver.vercel.app/feedback')
       .then((res) => res.json())
       .then((data) => setFeedbacks(data))
   }, [])
@@ -26,7 +26,7 @@ const Feedbacks = () => {
         {' '}
         Feedbacks
       </Typography>
-     
+
       <Swiper
         spaceBetween={50}
         // centeredSlides={true}

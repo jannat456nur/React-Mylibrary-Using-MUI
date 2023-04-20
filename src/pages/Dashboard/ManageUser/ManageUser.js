@@ -14,7 +14,7 @@ const ManageUser = () => {
   // fetch data from server
 
   useEffect(() => {
-    fetch('https://amused-pleat-worm.cyclic.app/users')
+    fetch('https://mylibraryserver.vercel.app/users')
       .then((res) => res.json())
       .then((data) => {
         const ManageUser = data.filter((user) => user.role !== 'admin')
@@ -26,7 +26,7 @@ const ManageUser = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm('Are you sure to delete user?')
     if (proceed) {
-      fetch(`https://amused-pleat-worm.cyclic.app/users/${id}`, {
+      fetch(`https://mylibraryserver.vercel.app/users/${id}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())

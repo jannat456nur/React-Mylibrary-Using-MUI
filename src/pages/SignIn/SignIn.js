@@ -117,10 +117,14 @@ const SignIn = () => {
                   >
                     Sign In
                   </button>
-              
+
                   <Link to="/signup" className="signinLink">
                     Dont have any account?Signup
                   </Link>
+                  <Typography className="text" sx={{color:"grey",fontSize:".8rem",mt:5}}>
+                    To visit admin panel signin with
+                    (email:admin@gmail.com,pass:admin123)
+                  </Typography>
                 </form>
                 {isLoading && <CircularProgress />}
                 {user?.email && ( // if user is logged in then show this message in console and redirect to home page

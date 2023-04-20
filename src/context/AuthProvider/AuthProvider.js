@@ -12,12 +12,11 @@ import {
 import app from '../../firebase/firebase.config'
 import { Navigate } from 'react-router-dom'
 
-
 export const AuthContext = createContext(null)
 export const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
- const [user, setUser] = useState({ email: '' });
+  const [user, setUser] = useState({ email: '' })
   const [loading, setLoading] = useState(true)
   const [authError, setAuthError] = useState('')
   const [admin, setAdmin] = useState(false)
@@ -32,16 +31,15 @@ const AuthProvider = ({ children }) => {
         // save user to the database
         saveUser(email, displayName, 'POST')
         setAuthError('')
-        
+
         // send name to firebase after creation
         updateProfile(auth.currentUser, {
           displayName,
         })
         // navigate to home page
-           Navigate('/');
-     
+        Navigate('/')
       })
-      
+
       .catch((error) => {
         setAuthError(error.message)
         console.log(error)
@@ -96,7 +94,7 @@ const AuthProvider = ({ children }) => {
 
   // for admin panel
   useEffect(() => {
-    fetch(`https://amused-pleat-worm.cyclic.app/users/${user.email}`)
+    fetch(`https://mylibraryserver.vercel.app/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin))
   }, [user.email])
@@ -117,7 +115,7 @@ const AuthProvider = ({ children }) => {
 
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName }
-    fetch('https://amused-pleat-worm.cyclic.app/users', {
+    fetch('https://mylibraryserver.vercel.app/users', {
       method: method,
       headers: {
         'content-type': 'application/json',

@@ -17,7 +17,7 @@ const Books = () => {
   // })
   // fetch data from server
   useEffect(() => {
-    fetch('https://amused-pleat-worm.cyclic.app/bookDataCollection')
+    fetch('https://mylibraryserver.vercel.app/bookDataCollection')
       .then((res) => res.json())
       .then((data) => setBooks(data))
   }, [])
