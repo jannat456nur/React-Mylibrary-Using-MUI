@@ -143,7 +143,7 @@ const SignIn = () => {
                 {user?.email && ( // if user is logged in then show this message in console and redirect to home page
                   <Alert severity="success">user login successfully!</Alert>
                 )}
-                {authError && <Alert severity="error">{authError}</Alert>}
+                {/* {authError && <Alert severity="error">{authError}</Alert>} */}
               </CardContent>
             </Card>
           </Grid>
