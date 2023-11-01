@@ -28,7 +28,7 @@ const SignIn = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
-  const from = location.state?.from?.pathname || '/'
+  
 
   const handleOnChange = (e) => {
     const field = e.target.name
@@ -39,12 +39,25 @@ const SignIn = () => {
     console.log(newLoginData)
   }
 
-  const handleSignIn = (e) => {
-    signIn(loginData.email, loginData.password)
-    setLoginUserEmail(loginData.email)
+  // const handleSignIn = (e) => {
+  //   signIn(loginData.email, loginData.password)
+  //   setLoginUserEmail(loginData.email)
+    
 
-    // navigate(from, { replace: true })
-    e.preventDefault()
+  //   // navigate(from, { replace: true })
+  //   e.preventDefault()
+  // }
+  const handleSignIn = (e) => {
+    e.preventDefault();
+
+    signIn(loginData.email, loginData.password)
+      .then(() => {
+        // Redirect to the home page after a successful login
+        navigate('/');
+      })
+      .catch((error) => {
+        console.error('Login error:', error);
+      });
   }
 
   return (

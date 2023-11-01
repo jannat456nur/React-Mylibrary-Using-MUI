@@ -17,7 +17,6 @@ import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider'
 
 export default function Header() {
-
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
@@ -166,50 +165,6 @@ export default function Header() {
                   Feedback
                 </NavLink>
               </Button>
-              <Button
-                sx={{
-                  fontSize: 18,
-                  display: 'block',
-                  width: '300px',
-                  textAlign: 'left',
-                }}
-              >
-                <NavLink
-                  style={({ isActive }) =>
-                    isActive
-                      ? {
-                          color: 'black',
-                        }
-                      : { color: '#0d284e' }
-                  }
-                  to="/contact"
-                  className="headerLink"
-                >
-                  Contact
-                </NavLink>
-              </Button>
-              <Button
-                sx={{
-                  fontSize: 18,
-                  display: 'block',
-                  width: '300px',
-                  textAlign: 'left',
-                }}
-              >
-                <NavLink
-                  style={({ isActive }) =>
-                    isActive
-                      ? {
-                          color: 'black',
-                        }
-                      : { color: '#0d284e' }
-                  }
-                  to="/signup"
-                  className="headerLink"
-                >
-                  SignUp
-                </NavLink>
-              </Button>
 
               {user?.email ? (
                 <Button
@@ -252,10 +207,10 @@ export default function Header() {
                           }
                         : { color: '#0d284e' }
                     }
-                    to="/signin"
+                    to="/signup"
                     className="headerLink"
                   >
-                    SignIn
+                    SignUp
                   </NavLink>
                 </Button>
               )}
@@ -346,20 +301,6 @@ export default function Header() {
             >
               Contact
             </NavLink>
-            <NavLink
-              style={({ isActive }) =>
-                isActive
-                  ? {
-                      color: 'black',
-                    }
-                  : { color: '#fff' }
-              }
-              to="/signup"
-              className="headerLink"
-            >
-              SignUp
-            </NavLink>
-            
 
             {user?.email ? (
               <NavLink
@@ -385,10 +326,10 @@ export default function Header() {
                       }
                     : { color: '#fff' }
                 }
-                to="/signin"
+                to="/signup"
                 className="headerLink"
               >
-                SignIn
+                Signup
               </NavLink>
             )}
           </Box>
@@ -433,7 +374,7 @@ export default function Header() {
                       to="/dashboard"
                       className="headerLink"
                     >
-                     Dashboard
+                      Dashboard
                     </NavLink>
                   </Button>
                 </MenuItem>

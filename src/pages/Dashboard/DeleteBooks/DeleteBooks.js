@@ -12,7 +12,7 @@ const DeleteBooks = () => {
 
   // const {data:,isLoading} = useQuery({
   //   queryKey: ['bookDataCollection'],
-  //   queryFn: () => fetch('http://localhost:5000/bookDataCollection')
+  //   queryFn: () => fetch('https://mylibraryserver.vercel.app/bookDataCollection')
   //   .then((res) => res.json()),
 
   // })
